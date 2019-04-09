@@ -4,3 +4,6 @@ app:
     - 4567:4567
   volumes:
     - ./source:/usr/src/app/source
+    - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+    - $HOME/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:ro
+    - $HOME/.ssh/known_hosts:/root/.ssh/known_hosts
