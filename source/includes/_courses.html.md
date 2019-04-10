@@ -147,6 +147,61 @@ Esse endpoint lista todos os cursos.
 | [courses] period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
 | [courses] max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
 
+## Listar cursos de um campus
+
+> Requisição
+
+```shell
+curl "https://querobolsa.com.br/api/courses?campus_id=102"
+  -H 'Authorization: ##########' \
+  -H 'Content-Type: application/json'
+```
+
+> O comando acima retorna uma estrutura JSON como essa:
+
+```json
+{
+  "courses": [
+    {
+      "id": 253,
+      "campus_id": 102,
+      "name": "MBA em Auditoria",
+      "level": "Pós-graduação Lato Sensu",
+      "kind": "EaD",
+      "shift": "Virtual",
+      "period_kind": "mes",
+      "max_periods": 6
+    }
+  ]
+}
+```
+
+Esse endpoint lista todos os cursos de um determinado campus, cujo é enviado o ID como parâmetro da requisição.
+
+### Requisição HTTP
+
+`GET https://querobolsa.com.br/api/courses?campus_id=<CAMPUS_ID>`
+
+### Parâmetros da requisição
+
+| Nome | Tipo | Descrição |
+| ---- | ---- | --------- |
+| CAMPUS_ID | query | ID do campus onde deseja resgatar cursos |
+
+### Parâmetros da resposta
+
+| Nome | Tipo | Descrição |
+| ---- | ---- | --------- |
+| courses | object array | Arranjo de objetos com dados de curso |
+| [courses] id | integer | Código identificador de curso |
+| [courses] campus_id | integer | Código identificador de campus |
+| [courses] name | string | Nome do curso |
+| [courses] level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
+| [courses] kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
+| [courses] shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
+| [courses] period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| [courses] max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+
 ## Informações de um curso específico
 
 > Requisição
