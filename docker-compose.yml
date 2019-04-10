@@ -3,4 +3,5 @@ app:
   ports:
     - 4567:4567
   volumes:
+    - .:/usr/src/app
     - ./source:/usr/src/app/source
