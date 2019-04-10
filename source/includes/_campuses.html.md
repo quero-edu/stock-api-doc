@@ -59,8 +59,8 @@ Esse endpoint lista todos os campi.
 | state | string | Estado do campus |
 | zip_code | string | Código CEP do campus |
 | phone | string | Telefone do campus |
-| latitude | integer | Coordenada de latitude do campus |
-| longitude | integer | Coordenada de longitude do campus |
+| latitude | float | Coordenada de latitude do campus |
+| longitude | float | Coordenada de longitude do campus |
 
 ## Informações de um campus específico
 
@@ -113,8 +113,8 @@ Esse endpoint traz informações de um campus específico.
 | state | string | Estado do campus |
 | zip_code | string | Código CEP do campus |
 | phone | string | Telefone do campus |
-| latitude | integer | Coordenada de latitude do campus |
-| longitude | integer | Coordenada de longitude do campus |
+| latitude | float | Coordenada de latitude do campus |
+| longitude | float | Coordenada de longitude do campus |
 
 ## Inserir campi
 
@@ -198,8 +198,8 @@ Esse endpoint cria campus em lote com informações enviadas em JSON.
 | state | string | Estado do campus |
 | zip_code | string | Código CEP do campus |
 | phone | string | Telefone do campus |
-| latitude | integer | Coordenada de latitude do campus |
-| longitude | integer | Coordenada de longitude do campus |
+| latitude | float | Coordenada de latitude do campus |
+| longitude | float | Coordenada de longitude do campus |
 
 ### Parâmetros da resposta
 
