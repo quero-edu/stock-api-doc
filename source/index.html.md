@@ -10,6 +10,7 @@ toc_footers:
 includes:
   - auth.html
   - campuses.html
+  - courses.html
   - errors.html
 
 search: true
