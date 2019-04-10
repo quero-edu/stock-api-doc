@@ -1,4 +1,4 @@
-# Curso
+# Cursos
 
 ## Atributos de curso
 
