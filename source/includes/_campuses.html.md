@@ -169,7 +169,7 @@ Status Code: 200 OK
 ```json
 {
   "error": false,
-  "message": "Operation done successfully."
+  "operation_id": "4e8c23c3-fab1-486d-9c0e-c49301305d94"
 }
 ```
 
@@ -178,6 +178,12 @@ Esse endpoint traz informações de um campus específico.
 ### Requisição HTTP
 
 `POST https://querobolsa.com.br/api/campuses/`
+
+<aside class="notice">
+  A resposta da requisição carrega o campo <code>operation_id</code>.
+
+  Para mais informações, acesse a <a href="#operacoes-de-estoque">documentação de operações de estoque</a>.
+</aside>
 
 ### Parâmetros da requisição
 
@@ -200,4 +206,4 @@ Esse endpoint traz informações de um campus específico.
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
 | error | boolean | Indicador de ocorrência de erro na operação |
-| message | string | Mensagem de retorno da operação realizada |
+| operation_id | string | ID da operação de estoque criada |
