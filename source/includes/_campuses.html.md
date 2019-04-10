@@ -173,7 +173,7 @@ Status Code: 200 OK
 }
 ```
 
-Esse endpoint traz informações de um campus específico.
+Esse endpoint cria campus em lote com informações enviadas em JSON.
 
 ### Requisição HTTP
 
