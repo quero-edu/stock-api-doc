@@ -11,6 +11,7 @@ includes:
   - auth.html
   - campuses.html
   - courses.html
+  - offers.html
   - errors.html
 
 search: true
