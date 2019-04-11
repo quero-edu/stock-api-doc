@@ -5,7 +5,7 @@
 > Requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/campuses"
+curl "https://querobolsa.com.br/api/campuses" \
   -H 'Authorization: ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -70,7 +70,7 @@ Esse endpoint lista todos os campi.
 > Requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/campuses/102"
+curl "https://querobolsa.com.br/api/campuses/102" \
   -H 'Authorization: ##########' \
   -H 'Content-Type: application/json'
 ```

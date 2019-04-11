@@ -93,7 +93,7 @@ Segue a tabela com possíveis valores para esse campo:
 > Requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/courses"
+curl "https://querobolsa.com.br/api/courses" \
   -H 'Authorization: ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -152,7 +152,7 @@ Esse endpoint lista todos os cursos.
 > Requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/courses?campus_id=102"
+curl "https://querobolsa.com.br/api/courses?campus_id=102" \
   -H 'Authorization: ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -207,7 +207,7 @@ Esse endpoint lista todos os cursos de um determinado campus, cujo é enviado o 
 > Requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/courses/253"
+curl "https://querobolsa.com.br/api/courses/253" \
   -H 'Authorization: ##########' \
   -H 'Content-Type: application/json'
 ```
