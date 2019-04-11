@@ -76,7 +76,9 @@ Esse endpoint lista todas as operações de estoque.
 | stock_operations | object array | Arranjo de objetos com dados de operação de estoque |
 | [stock_operations] id | string | Código identificador de operação de estoque |
 | [stock_operations] status | string | Estado atual da operação de estoque |
-| [stock_operations] success_count | integer | Preço do curso sem desconto |
-| [stock_operations] error_count | integer | Porcentagem de desconto do Quero Bolsa |
+| [stock_operations] success_count | integer | Número de operações no banco de dados realizadas com sucesso |
+| [stock_operations] error_count | integer | Número de operações no banco de dados realizadas que falharam |
+| [stock_operations] validation_success_count | integer | Número de operações no banco de dados que foram validadas com sucesso |
+| [stock_operations] validation_error_count | integer | Número de validações de operações no banco de dados que falharam |
 | [stock_operations] created_at | string | Data e hora combinadas da criação da operação de estoque em formato UTC [ISO 8601](https://pt.wikipedia.org/wiki/ISO_8601) |
 | [stock_operations] finished_at | string | Data e hora combinadas da finalização da operação de estoque em formato UTC [ISO 8601](https://pt.wikipedia.org/wiki/ISO_8601) |
