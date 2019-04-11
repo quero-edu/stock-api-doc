@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API de Integração de Estoque</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,282 +212,1705 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
+          <input type="text" class="search" id="input-search" placeholder="Pesquisar">
         </div>
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introducao" class="toc-h1 toc-link" data-title="Introdução">Introdução</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#autenticacao" class="toc-h1 toc-link" data-title="Autenticação">Autenticação</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#modo-de-autenticacao" class="toc-h2 toc-link" data-title="Modo de autenticação">Modo de autenticação</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#requisicao-sem-token" class="toc-h2 toc-link" data-title="Requisição sem token">Requisição sem token</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#requisicao-com-token-invalido" class="toc-h2 toc-link" data-title="Requisição com token inválido">Requisição com token inválido</a>
+                  </li>
+                  <li>
+                    <a href="#requisicao-com-token-nao-autorizado" class="toc-h2 toc-link" data-title="Requisição com token não autorizado">Requisição com token não autorizado</a>
+                  </li>
+                  <li>
+                    <a href="#requisicao-com-token-sem-permissao" class="toc-h2 toc-link" data-title="Requisição com token sem permissão">Requisição com token sem permissão</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#login" class="toc-h1 toc-link" data-title="Login">Login</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#criar-uma-sessao" class="toc-h2 toc-link" data-title="Criar uma sessão">Criar uma sessão</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#campi" class="toc-h1 toc-link" data-title="Campi">Campi</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listar-campi" class="toc-h2 toc-link" data-title="Listar campi">Listar campi</a>
+                  </li>
+                  <li>
+                    <a href="#informacoes-de-um-campus-especifico" class="toc-h2 toc-link" data-title="Informações de um campus específico">Informações de um campus específico</a>
+                  </li>
+                  <li>
+                    <a href="#inserir-campi" class="toc-h2 toc-link" data-title="Inserir campi">Inserir campi</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cursos" class="toc-h1 toc-link" data-title="Cursos">Cursos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#atributos-de-curso" class="toc-h2 toc-link" data-title="Atributos de curso">Atributos de curso</a>
+                  </li>
+                  <li>
+                    <a href="#listar-cursos" class="toc-h2 toc-link" data-title="Listar cursos">Listar cursos</a>
+                  </li>
+                  <li>
+                    <a href="#listar-cursos-de-um-campus" class="toc-h2 toc-link" data-title="Listar cursos de um campus">Listar cursos de um campus</a>
+                  </li>
+                  <li>
+                    <a href="#informacoes-de-um-curso-especifico" class="toc-h2 toc-link" data-title="Informações de um curso específico">Informações de um curso específico</a>
+                  </li>
+                  <li>
+                    <a href="#inserir-cursos" class="toc-h2 toc-link" data-title="Inserir cursos">Inserir cursos</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ofertas" class="toc-h1 toc-link" data-title="Ofertas">Ofertas</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listar-ofertas" class="toc-h2 toc-link" data-title="Listar ofertas">Listar ofertas</a>
+                  </li>
+                  <li>
+                    <a href="#listar-ofertas-de-um-campus" class="toc-h2 toc-link" data-title="Listar ofertas de um campus">Listar ofertas de um campus</a>
+                  </li>
+                  <li>
+                    <a href="#informacoes-de-uma-oferta-especifica" class="toc-h2 toc-link" data-title="Informações de uma oferta específica">Informações de uma oferta específica</a>
+                  </li>
+                  <li>
+                    <a href="#inserir-ofertas" class="toc-h2 toc-link" data-title="Inserir ofertas">Inserir ofertas</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#operacoes-de-estoque" class="toc-h1 toc-link" data-title="Operações de estoque">Operações de estoque</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#atributos-de-operacoes-de-estoque" class="toc-h2 toc-link" data-title="Atributos de operações de estoque">Atributos de operações de estoque</a>
+                  </li>
+                  <li>
+                    <a href="#listar-operacoes-de-estoque" class="toc-h2 toc-link" data-title="Listar operações de estoque">Listar operações de estoque</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#erros" class="toc-h1 toc-link" data-title="Erros">Erros</a>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='introducao'>Introdução</h1>
+<p>O grupo Kroton Educacional é um dos principais parceiros do Quero Bolsa, trazendo para nossa plataforma diversas bolsas de estudo que permitem o ingresso de muitos alunos ao ensino superior. Como mais um passo a facilitar esse processo de gerenciamento do estoque de bolsas, garantindo a validade do benefício, acordamos a implementação de serviços automatizados para integração dos estoques de cursos. O contexto em questão refere-se a uma sincronização das ofertas ilimitadas de cursos à distância da universidade, assim como os campuses associados aos cursos.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>O objetivo desse serviço é garantir a consistência entre as bases de dados, sinalizando quais cursos estão divergentes na base do Quero Bolsa em relação a base do grupo Kroton. Uma vez que esse serviço retorne os resultados, realizaremos as devidas operações de atualização de cursos com valores divergentes, criação de cursos para os cursos faltantes e o processo de desabilitar os cursos para os cursos excedentes. O mesmo processo deve ser aplicado aos campi.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>Para otimizar esse processo de sincronização de cursos disponíveis, gostaríamos de propor a implementação de uma Interface de Aplicações (API) REST para atender esses devidos fins, composta por três serviços interdependentes.</p>
+<h1 id='autenticacao'>Autenticação</h1><h2 id='modo-de-autenticacao'>Modo de autenticação</h2>
+<p>A autenticação será feita por sessão de login. O sessão é feita por uma combinação de nome de usuário e senha, cuja é fornecida pelo Quero Bolsa.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<p>Para mais informações, visite a <a href="#login">documentação de login</a>.</p>
+<h2 id='requisicao-sem-token'>Requisição sem token</h2><pre class="highlight plaintext"><code>Ausência de Token
+Status Code: 401 Unauthorized
+www-authenticate: 'Token realm="StockIntegration"'
 </code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<p>Em caso de requisição sem o envio do token será retornado status <code>401 - Unauthorized</code>.</p>
+<h2 id='requisicao-com-token-invalido'>Requisição com token inválido</h2><pre class="highlight plaintext"><code>Formato de token inválido
+Status Code: 400 Bad Request
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<p>Em caso de token em formato inválido será retornado status <code>400 - Bad Request</code>.</p>
+<h2 id='requisicao-com-token-nao-autorizado'>Requisição com token não autorizado</h2><pre class="highlight plaintext"><code>Não autorizado
+Status Code: 403 Forbidden
+</code></pre>
+<p>Em caso de token não autorizado será retornado erro <code>403 - Forbidden</code>.</p>
+<h2 id='requisicao-com-token-sem-permissao'>Requisição com token sem permissão</h2><pre class="highlight plaintext"><code>Sem permissão
+Status Code: 200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Permission"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not authorized to access this resource with these parameters"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p>Em caso de token válido mas sem permissão de acesso ao recurso específico, retornará o status <code>200 - OK</code> com mensagem de erro no payload.</p>
+<h1 id='login'>Login</h1>
+<p>A sessão é criada por meio de um usuário e senha, ela retornará um token que ficará válido por 4 horas, após esse período ele será expirado.</p>
+
+<p>Será necessário enviar esse token no cabeçalho das requisições para conseguir fazer as ações da API.</p>
+<h2 id='criar-uma-sessao'>Criar uma sessão</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://querobolsa.com.br/api/sessions"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "session": {
+      "username": "teste@teste.com",
+      "password": "teste123!"
+    }
+  }'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qPWFZr3CSX52SLeUWdP9XXL5"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>É necessário enviar uma requisição com o <code>username</code> e <code>password</code> para criar uma sessão.</p>
+
+<p>A resposta da requisição traz o token da sessão, que ficará válido por 4 horas. Esse token precisará estar presente no campo <code>Authorization</code> no cabeçalho das outras ações da API.</p>
+<h3 id='parametros-para-criar-uma-sessao'>Parâmetros para criar uma sessão</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>session</td>
+<td>object</td>
+<td>Objeto com dados das credenciais para login</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>username</td>
+<td>sting</td>
+<td>Nome de usuário para login fornecido pelo Quero Bolsa</td>
+</tr>
+<tr>
+<td>password</td>
+<td>sting</td>
+<td>Senha para login fornecido pelo Quero Bolsa</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<aside class="notice">Lembrete - Troque o <code>username</code> e <code>password</code> pelas credenciais fornecidas pelo Quero Bolsa.</aside>
+<h3 id='parametros-da-resposta'>Parâmetros da resposta</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>sting</td>
+<td>Token de acesso da sessão</td>
+</tr>
+</tbody></table>
+<h1 id='campi'>Campi</h1><h2 id='listar-campi'>Listar campi</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/campuses"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"campuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65604-060"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(00) 00000000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-23.198976</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7024</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Independência, 210"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Éden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18087-101"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(00) 00000000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-23.198976</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint lista todos os campi.</p>
+<h3 id='requisicao-http'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/campuses</code></p>
+<h3 id='parametros-da-resposta'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campuses</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de campus</td>
+</tr>
+<tr>
+<td>[campuses] id</td>
+<td>integer</td>
+<td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>[campuses] name</td>
+<td>string</td>
+<td>Nome do campus</td>
+</tr>
+<tr>
+<td>[campuses] address</td>
+<td>string</td>
+<td>Endereço do campus</td>
+</tr>
+<tr>
+<td>[campuses] neighborhood</td>
+<td>string</td>
+<td>Bairro do campus</td>
+</tr>
+<tr>
+<td>[campuses] city</td>
+<td>string</td>
+<td>Cidade do campus</td>
+</tr>
+<tr>
+<td>[campuses] state</td>
+<td>string</td>
+<td>Estado do campus</td>
+</tr>
+<tr>
+<td>[campuses] zip_code</td>
+<td>string</td>
+<td>Código CEP do campus</td>
+</tr>
+<tr>
+<td>[campuses] phone</td>
+<td>string</td>
+<td>Telefone do campus</td>
+</tr>
+<tr>
+<td>[campuses] latitude</td>
+<td>float</td>
+<td>Coordenada de latitude do campus</td>
+</tr>
+<tr>
+<td>[campuses] longitude</td>
+<td>float</td>
+<td>Coordenada de longitude do campus</td>
+</tr>
+</tbody></table>
+<h2 id='informacoes-de-um-campus-especifico'>Informações de um campus específico</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/campuses/102"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MA"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65604-060"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(00) 00000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-23.198976</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint traz informações de um campus específico.</p>
+<h3 id='requisicao-http-2'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/campuses/&lt;ID&gt;</code></p>
+<h3 id='parametros-da-requisicao'>Parâmetros da requisição</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>path</td>
+<td>ID do campus que deseja resgatar informações</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='parametros-da-resposta-2'>Parâmetros da resposta</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Nome do campus</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>Endereço do campus</td>
+</tr>
+<tr>
+<td>neighborhood</td>
+<td>string</td>
+<td>Bairro do campus</td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td>Cidade do campus</td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>Estado do campus</td>
+</tr>
+<tr>
+<td>zip_code</td>
+<td>string</td>
+<td>Código CEP do campus</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>Telefone do campus</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>float</td>
+<td>Coordenada de latitude do campus</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>float</td>
+<td>Coordenada de longitude do campus</td>
+</tr>
+</tbody></table>
+<h2 id='inserir-campi'>Inserir campi</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://querobolsa.com.br/api/campuses"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d @campus_data.json
+</code></pre>
+<blockquote>
+<p>Exemplo da estrutura JSON esperada:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"campuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"university_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65604-060"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(00) 00000000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-23.198976</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"university_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Independência, 210"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Éden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18087-101"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(00) 00000000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-23.198976</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Status Code: 200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"operation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e8c23c3-fab1-486d-9c0e-c49301305d94"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint cria campus em lote com informações enviadas em JSON.</p>
+<h3 id='requisicao-http-3'>Requisição HTTP</h3>
+<p><code>POST https://querobolsa.com.br/api/campuses/</code></p>
+
+<aside class="notice">
+  A resposta da requisição carrega o campo <code>operation_id</code>.
+
+  Para mais informações, acesse a <a href="#operacoes-de-estoque">documentação de operações de estoque</a>.
+</aside>
+<h3 id='parametros-da-requisicao-2'>Parâmetros da requisição</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campuses</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de campus</td>
+</tr>
+<tr>
+<td>[campuses] university_id</td>
+<td>integer</td>
+<td>Código identificador da universidade do campus</td>
+</tr>
+<tr>
+<td>[campuses] name</td>
+<td>string</td>
+<td>Nome do campus</td>
+</tr>
+<tr>
+<td>[campuses] address</td>
+<td>string</td>
+<td>Endereço do campus</td>
+</tr>
+<tr>
+<td>[campuses] neighborhood</td>
+<td>string</td>
+<td>Bairro do campus</td>
+</tr>
+<tr>
+<td>[campuses] city</td>
+<td>string</td>
+<td>Cidade do campus</td>
+</tr>
+<tr>
+<td>[campuses] state</td>
+<td>string</td>
+<td>Estado do campus</td>
+</tr>
+<tr>
+<td>[campuses] zip_code</td>
+<td>string</td>
+<td>Código CEP do campus</td>
+</tr>
+<tr>
+<td>[campuses] phone</td>
+<td>string</td>
+<td>Telefone do campus</td>
+</tr>
+<tr>
+<td>[campuses] latitude</td>
+<td>float</td>
+<td>Coordenada de latitude do campus</td>
+</tr>
+<tr>
+<td>[campuses] longitude</td>
+<td>float</td>
+<td>Coordenada de longitude do campus</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-da-resposta-3'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>error</td>
+<td>boolean</td>
+<td>Indicador de ocorrência de erro na operação</td>
+</tr>
+<tr>
+<td>operation_id</td>
+<td>string</td>
+<td>ID da operação de estoque criada</td>
+</tr>
+</tbody></table>
+<h1 id='cursos'>Cursos</h1><h2 id='atributos-de-curso'>Atributos de curso</h2>
+<p>As entidades de curso possuem atributos que seguem padrões de preenchimento. Nessa seção, vamos conferir quais são esses atributos e os valores possíveis de cada um.</p>
+<h3 id='modalidade-kind'>Modalidade <code>(kind)</code></h3>
+<p>O atributo <code>kind</code> indica a modalidade do curso.</p>
+
+<p>De uma forma geral, a modalidade informa a forma que o aluno irá fazer o curso.</p>
+
+<p>Segue a tabela com possíveis valores para esse campo:</p>
+
+<table><thead>
+<tr>
+<th>Valor</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Presencial</td>
+</tr>
+<tr>
+<td>EaD</td>
+</tr>
+<tr>
+<td>EaD Mais</td>
+</tr>
+<tr>
+<td>Flex</td>
+</tr>
+<tr>
+<td>SEPI</td>
+</tr>
+<tr>
+<td>Semipresencial</td>
+</tr>
+</tbody></table>
+<h3 id='grau-level'>Grau <code>(level)</code></h3>
+<p>O atributo <code>level</code> indica o grau do curso.</p>
+
+<p>O grau é o nível do curso oferecido, ou seja, é referente ao título que o aluno irá obter após concluir o curso.</p>
+
+<p>Segue a tabela com possíveis valores para esse campo:</p>
+
+<table><thead>
+<tr>
+<th>Valor</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Licenciatura (graduação)</td>
+</tr>
+<tr>
+<td>Bacharelado (graduação)</td>
+</tr>
+<tr>
+<td>Bacharelado + Licenciatura (graduação)</td>
+</tr>
+<tr>
+<td>Tecnólogo (graduação)</td>
+</tr>
+<tr>
+<td>Pós-graduação Lato Sensu</td>
+</tr>
+<tr>
+<td>Mestrado</td>
+</tr>
+<tr>
+<td>Doutorado</td>
+</tr>
+<tr>
+<td>Pós-doutorado</td>
+</tr>
+<tr>
+<td>Técnico</td>
+</tr>
+<tr>
+<td>Profissionalizante</td>
+</tr>
+<tr>
+<td>Curso Livre</td>
+</tr>
+<tr>
+<td>Pré-vestibular</td>
+</tr>
+<tr>
+<td>Ensino Fundamental</td>
+</tr>
+<tr>
+<td>Ensino Infantil</td>
+</tr>
+<tr>
+<td>Ensino Médio</td>
+</tr>
+<tr>
+<td>Sequencial</td>
+</tr>
+<tr>
+<td>Segunda Graduação</td>
+</tr>
+<tr>
+<td>Bootcamp</td>
+</tr>
+</tbody></table>
+<h3 id='turno-shift'>Turno <code>(shift)</code></h3>
+<p>O atributo <code>shift</code> indica o turno do curso.</p>
+
+<p>O turno do curso é o período de dia que o aluno estará cursando.</p>
+
+<p>Segue a tabela com possíveis valores para esse campo:</p>
+
+<table><thead>
+<tr>
+<th>Valor</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Manhã</td>
+</tr>
+<tr>
+<td>Tarde</td>
+</tr>
+<tr>
+<td>Noite</td>
+</tr>
+<tr>
+<td>Integral</td>
+</tr>
+<tr>
+<td>Virtual</td>
+</tr>
+<tr>
+<td>Outro</td>
+</tr>
+</tbody></table>
+<h3 id='periodicidade-period_kind'>Periodicidade <code>(period_kind)</code></h3>
+<p>O atributo <code>period_kind</code> indica a periodicidade curso.</p>
+
+<p>A peridicidade é a forma como o curso está dividido e também serve para informar a duração do mesmo quando combinado com o campo <code>max_periods</code>, que indica a quantidade dessa periodicidade. Por exemplo: se uma entidade de curso possui o valor <code>6</code> no atributo <code>max_periods</code> e <code>semestre</code> em <code>period_kind</code>, isso quer dizer que é um curso com duração de 6 semestres.</p>
+
+<p>Segue a tabela com possíveis valores para esse campo:</p>
+
+<table><thead>
+<tr>
+<th>Valor</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hora</td>
+</tr>
+<tr>
+<td>dia</td>
+</tr>
+<tr>
+<td>modulo</td>
+</tr>
+<tr>
+<td>semanal</td>
+</tr>
+<tr>
+<td>quinzenal</td>
+</tr>
+<tr>
+<td>mes</td>
+</tr>
+<tr>
+<td>trimestre</td>
+</tr>
+<tr>
+<td>quadrimestre</td>
+</tr>
+<tr>
+<td>semestre</td>
+</tr>
+<tr>
+<td>ano</td>
+</tr>
+</tbody></table>
+<h2 id='listar-cursos'>Listar cursos</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/courses"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">809</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7024</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direito"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bacharelado (graduação)"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Presencial"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Noite"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semestre"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"max_periods"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA em Auditoria"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pós-graduação Lato Sensu"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EaD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Virtual"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"max_periods"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint lista todos os cursos.</p>
+<h3 id='requisicao-http'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/courses</code></p>
+<h3 id='parametros-da-resposta'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>courses</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de curso</td>
+</tr>
+<tr>
+<td>[courses] id</td>
+<td>integer</td>
+<td>Código identificador de curso</td>
+</tr>
+<tr>
+<td>[courses] campus_id</td>
+<td>integer</td>
+<td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>[courses] name</td>
+<td>string</td>
+<td>Nome do curso</td>
+</tr>
+<tr>
+<td>[courses] level</td>
+<td>string</td>
+<td>Grau do curso. Mais informações sobre esse atributo <a href="#grau-level">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] kind</td>
+<td>string</td>
+<td>Modalidade do curso. Mais informações sobre esse atributo <a href="#modalidade-kind">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] shift</td>
+<td>string</td>
+<td>Turno do curso. Mais informações sobre esse atributo <a href="#turno-shift">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] period_kind</td>
+<td>string</td>
+<td>Periodicidade do curso. Mais informações sobre esse atributo <a href="#periodicidade-period_kind">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] max_periods</td>
+<td>string</td>
+<td>Quantidade de periodicidade. Mais informações sobre esse atributo <a href="#periodicidade-period_kind">aqui</a></td>
+</tr>
+</tbody></table>
+<h2 id='listar-cursos-de-um-campus'>Listar cursos de um campus</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/courses?campus_id=102"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA em Auditoria"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pós-graduação Lato Sensu"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EaD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Virtual"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"max_periods"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint lista todos os cursos de um determinado campus, cujo é enviado o ID como parâmetro da requisição.</p>
+<h3 id='requisicao-http-2'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/courses?campus_id=&lt;CAMPUS_ID&gt;</code></p>
+<h3 id='parametros-da-requisicao'>Parâmetros da requisição</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CAMPUS_ID</td>
+<td>query</td>
+<td>ID do campus onde deseja resgatar cursos</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-da-resposta-2'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>courses</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de curso</td>
+</tr>
+<tr>
+<td>[courses] id</td>
+<td>integer</td>
+<td>Código identificador de curso</td>
+</tr>
+<tr>
+<td>[courses] campus_id</td>
+<td>integer</td>
+<td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>[courses] name</td>
+<td>string</td>
+<td>Nome do curso</td>
+</tr>
+<tr>
+<td>[courses] level</td>
+<td>string</td>
+<td>Grau do curso. Mais informações sobre esse atributo <a href="#grau-level">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] kind</td>
+<td>string</td>
+<td>Modalidade do curso. Mais informações sobre esse atributo <a href="#modalidade-kind">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] shift</td>
+<td>string</td>
+<td>Turno do curso. Mais informações sobre esse atributo <a href="#turno-shift">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] period_kind</td>
+<td>string</td>
+<td>Periodicidade do curso. Mais informações sobre esse atributo <a href="#periodicidade-period_kind">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] max_periods</td>
+<td>string</td>
+<td>Quantidade de periodicidade. Mais informações sobre esse atributo <a href="#periodicidade-period_kind">aqui</a></td>
+</tr>
+</tbody></table>
+<h2 id='informacoes-de-um-curso-especifico'>Informações de um curso específico</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/courses/253"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA em Auditoria"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pós-graduação Lato Sensu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EaD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Virtual"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"period_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mes"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_periods"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint traz informações de um curso específico.</p>
+<h3 id='requisicao-http-3'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/courses/&lt;ID&gt;</code></p>
+<h3 id='parametros-da-requisicao-2'>Parâmetros da requisição</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>path</td>
+<td>ID do curso que deseja resgatar informações</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+<h3 id='parametros-da-resposta-3'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Código identificador de curso</td>
+</tr>
+<tr>
+<td>campus_id</td>
+<td>integer</td>
+<td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Nome do curso</td>
+</tr>
+<tr>
+<td>level</td>
+<td>string</td>
+<td>Grau do curso. Mais informações sobre esse atributo <a href="#grau-level">aqui</a></td>
+</tr>
+<tr>
+<td>kind</td>
+<td>string</td>
+<td>Modalidade do curso. Mais informações sobre esse atributo <a href="#modalidade-kind">aqui</a></td>
+</tr>
+<tr>
+<td>shift</td>
+<td>string</td>
+<td>Turno do curso. Mais informações sobre esse atributo <a href="#turno-shift">aqui</a></td>
+</tr>
+<tr>
+<td>period_kind</td>
+<td>string</td>
+<td>Periodicidade do curso. Mais informações sobre esse atributo <a href="#periodicidade-period_kind">aqui</a></td>
+</tr>
+<tr>
+<td>max_periods</td>
+<td>string</td>
+<td>Quantidade de periodicidade. Mais informações sobre esse atributo <a href="#periodicidade-period_kind">aqui</a></td>
+</tr>
+</tbody></table>
+<h2 id='inserir-cursos'>Inserir cursos</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://querobolsa.com.br/api/courses"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d @course_data.json
+</code></pre>
+<blockquote>
+<p>Exemplo da estrutura JSON esperada:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7024</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direito"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bacharelado (graduação)"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Presencial"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Noite"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semestre"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"max_periods"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA em Auditoria"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pós-graduação Lato Sensu"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EaD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Virtual"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"max_periods"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Status Code: 200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"operation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e8c23c3-fab1-486d-9c0e-c49301305d94"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint cria cursos em lote com informações enviadas em JSON.</p>
+<h3 id='requisicao-http-4'>Requisição HTTP</h3>
+<p><code>POST https://querobolsa.com.br/api/courses/</code></p>
 
-<p>The Kittn API uses the following error codes:</p>
+<aside class="notice">
+  A resposta da requisição carrega o campo <code>operation_id</code>.
+
+  Para mais informações, acesse a <a href="#operacoes-de-estoque">documentação de operações de estoque</a>.
+</aside>
+<h3 id='parametros-da-requisicao-3'>Parâmetros da requisição</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>courses</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de curso</td>
+</tr>
+<tr>
+<td>[courses] campus_id</td>
+<td>integer</td>
+<td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>[courses] name</td>
+<td>string</td>
+<td>Nome do curso</td>
+</tr>
+<tr>
+<td>[courses] level</td>
+<td>string</td>
+<td>Grau do curso. Mais informações sobre esse atributo <a href="#grau-level">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] kind</td>
+<td>string</td>
+<td>Modalidade do curso. Mais informações sobre esse atributo <a href="#modalidade-kind">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] shift</td>
+<td>string</td>
+<td>Turno do curso. Mais informações sobre esse atributo <a href="#turno-shift">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] period_kind</td>
+<td>string</td>
+<td>Periodicidade do curso. Mais informações sobre esse atributo <a href="#periodicidade-period_kind">aqui</a></td>
+</tr>
+<tr>
+<td>[courses] max_periods</td>
+<td>string</td>
+<td>Quantidade de periodicidade. Mais informações sobre esse atributo <a href="#periodicidade-period_kind">aqui</a></td>
+</tr>
+</tbody></table>
+<h3 id='parametros-da-resposta-4'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>error</td>
+<td>boolean</td>
+<td>Indicador de ocorrência de erro na operação</td>
+</tr>
+<tr>
+<td>operation_id</td>
+<td>string</td>
+<td>ID da operação de estoque criada</td>
+</tr>
+</tbody></table>
+<h1 id='ofertas'>Ofertas</h1><h2 id='listar-ofertas'>Listar ofertas</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/offers"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1215</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">299.99</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_with_discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">149.99</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"enrollment_semester"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019.1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number_of_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4984</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">809</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">649.00</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25%"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_with_discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">486.75</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"enrollment_semester"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019.1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-31"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number_of_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint lista todas as ofertas.</p>
+<h3 id='requisicao-http'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/offers</code></p>
+<h3 id='parametros-da-resposta'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offers</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de oferta</td>
+</tr>
+<tr>
+<td>[offers] id</td>
+<td>integer</td>
+<td>Código identificador de oferta</td>
+</tr>
+<tr>
+<td>[offers] course_id</td>
+<td>integer</td>
+<td>Código identificador de curso</td>
+</tr>
+<tr>
+<td>[offers] full_price</td>
+<td>float</td>
+<td>Preço do curso sem desconto</td>
+</tr>
+<tr>
+<td>[offers] discount_percentage</td>
+<td>string</td>
+<td>Porcentagem de desconto do Quero Bolsa</td>
+</tr>
+<tr>
+<td>[offers] price_with_discount</td>
+<td>float</td>
+<td>Preço do curso aplicando o desconto do Quero Bolsa</td>
+</tr>
+<tr>
+<td>[offers] enrollment_semester</td>
+<td>string</td>
+<td>Semestre de matrícula do curso</td>
+</tr>
+<tr>
+<td>[offers] end_date</td>
+<td>string</td>
+<td>Data de fim da oferta</td>
+</tr>
+<tr>
+<td>[offers] number_of_installments</td>
+<td>integer</td>
+<td>Número de parcelas que o curso será pago</td>
+</tr>
+</tbody></table>
+<h2 id='listar-ofertas-de-um-campus'>Listar ofertas de um campus</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/offers?campus_id=102"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1215</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">299.99</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_with_discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">149.99</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"enrollment_semester"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019.1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number_of_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint lista todos os ofertas de um determinado campus, cujo é enviado o ID como parâmetro da requisição.</p>
+<h3 id='requisicao-http-2'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/offers?campus_id=&lt;CAMPUS_ID&gt;</code></p>
+<h3 id='parametros-da-requisicao'>Parâmetros da requisição</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CAMPUS_ID</td>
+<td>query</td>
+<td>ID do campus onde deseja resgatar ofertas</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-da-resposta-2'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offers</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de oferta</td>
+</tr>
+<tr>
+<td>[offers] id</td>
+<td>integer</td>
+<td>Código identificador de oferta</td>
+</tr>
+<tr>
+<td>[offers] course_id</td>
+<td>integer</td>
+<td>Código identificador de curso</td>
+</tr>
+<tr>
+<td>[offers] full_price</td>
+<td>float</td>
+<td>Preço do curso sem desconto</td>
+</tr>
+<tr>
+<td>[offers] discount_percentage</td>
+<td>string</td>
+<td>Porcentagem de desconto do Quero Bolsa</td>
+</tr>
+<tr>
+<td>[offers] price_with_discount</td>
+<td>float</td>
+<td>Preço do curso aplicando o desconto do Quero Bolsa</td>
+</tr>
+<tr>
+<td>[offers] enrollment_semester</td>
+<td>string</td>
+<td>Semestre de matrícula do curso</td>
+</tr>
+<tr>
+<td>[offers] end_date</td>
+<td>string</td>
+<td>Data de fim da oferta</td>
+</tr>
+<tr>
+<td>[offers] number_of_installments</td>
+<td>integer</td>
+<td>Número de parcelas que o curso será pago</td>
+</tr>
+</tbody></table>
+<h2 id='informacoes-de-uma-oferta-especifica'>Informações de uma oferta específica</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/offers/1215"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1215</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"full_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">299.99</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price_with_discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">149.99</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"enrollment_semester"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019.1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"number_of_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint traz informações de uma oferta específica.</p>
+<h3 id='requisicao-http-3'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/offers/&lt;ID&gt;</code></p>
+<h3 id='parametros-da-requisicao-2'>Parâmetros da requisição</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>path</td>
+<td>ID da oferta que deseja resgatar informações</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-da-resposta-3'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Código identificador de oferta</td>
+</tr>
+<tr>
+<td>course_id</td>
+<td>integer</td>
+<td>Código identificador de curso</td>
+</tr>
+<tr>
+<td>full_price</td>
+<td>float</td>
+<td>Preço do curso sem desconto</td>
+</tr>
+<tr>
+<td>discount_percentage</td>
+<td>string</td>
+<td>Porcentagem de desconto do Quero Bolsa</td>
+</tr>
+<tr>
+<td>price_with_discount</td>
+<td>float</td>
+<td>Preço do curso aplicando o desconto do Quero Bolsa</td>
+</tr>
+<tr>
+<td>enrollment_semester</td>
+<td>string</td>
+<td>Semestre de matrícula do curso</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>string</td>
+<td>Data de fim da oferta</td>
+</tr>
+<tr>
+<td>number_of_installments</td>
+<td>integer</td>
+<td>Número de parcelas que o curso será pago</td>
+</tr>
+</tbody></table>
+<h2 id='inserir-ofertas'>Inserir ofertas</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://querobolsa.com.br/api/offers"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d @offer_data.json
+</code></pre>
+<blockquote>
+<p>Exemplo da estrutura JSON esperada:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">299.99</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_with_discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">149.99</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"enrollment_semester"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019.1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number_of_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">809</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">649.00</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25%"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_with_discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">486.75</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"enrollment_semester"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019.1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-31"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number_of_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Status Code: 200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"operation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e8c23c3-fab1-486d-9c0e-c49301305d94"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint cria ofertas em lote com informações enviadas em JSON.</p>
+<h3 id='requisicao-http-4'>Requisição HTTP</h3>
+<p><code>POST https://querobolsa.com.br/api/offers/</code></p>
+
+<aside class="notice">
+  A resposta da requisição carrega o campo <code>operation_id</code>.
+
+  Para mais informações, acesse a <a href="#operacoes-de-estoque">documentação de operações de estoque</a>.
+</aside>
+<h3 id='parametros-da-requisicao-3'>Parâmetros da requisição</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offers</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de oferta</td>
+</tr>
+<tr>
+<td>[offers] course_id</td>
+<td>integer</td>
+<td>Código identificador de curso</td>
+</tr>
+<tr>
+<td>[offers] full_price</td>
+<td>float</td>
+<td>Preço do curso sem desconto</td>
+</tr>
+<tr>
+<td>[offers] discount_percentage</td>
+<td>string</td>
+<td>Porcentagem de desconto do Quero Bolsa</td>
+</tr>
+<tr>
+<td>[offers] price_with_discount</td>
+<td>float</td>
+<td>Preço do curso aplicando o desconto do Quero Bolsa</td>
+</tr>
+<tr>
+<td>[offers] enrollment_semester</td>
+<td>string</td>
+<td>Semestre de matrícula do curso</td>
+</tr>
+<tr>
+<td>[offers] end_date</td>
+<td>string</td>
+<td>Data de fim da oferta</td>
+</tr>
+<tr>
+<td>[offers] number_of_installments</td>
+<td>integer</td>
+<td>Número de parcelas que o curso será pago</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-da-resposta-4'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>error</td>
+<td>boolean</td>
+<td>Indicador de ocorrência de erro na operação</td>
+</tr>
+<tr>
+<td>operation_id</td>
+<td>string</td>
+<td>ID da operação de estoque criada</td>
+</tr>
+</tbody></table>
+<h1 id='operacoes-de-estoque'>Operações de estoque</h1>
+<p>Todas as operações de inserção do estoque são feitas em processos assíncronos. Para ter informações do processo de execução das operações é fornecido o ID da operação no fim de toda ação de inserção da API.</p>
+
+<p>Com esse ID, é possível saber o estado atual da operação, quantas inserções foram feitas com sucesso, quantas inserções tiveram falhas ao serem executadas, entre outras informações.</p>
+<h2 id='atributos-de-operacoes-de-estoque'>Atributos de operações de estoque</h2>
+<p>As entidades de operação de estoque possuem atributos que seguem padrões de preenchimento. Nessa seção, vamos conferir quais são esses atributos e os valores possíveis de cada um.</p>
+<h3 id='status'>Status</h3>
+<p>As operações de estoque têm um estado e esse estado muda conforme a operação é executada.</p>
+
+<p>Lista de valores possíveis do campo <code>status</code>:</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Valor</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>created</td>
+<td>Operação criada</td>
+</tr>
+<tr>
+<td>validating</td>
+<td>Operação em processo de validação</td>
+</tr>
+<tr>
+<td>validation_ok</td>
+<td>Operação validada com sucesso</td>
+</tr>
+<tr>
+<td>validation_error</td>
+<td>Erro ao validar a operação</td>
+</tr>
+<tr>
+<td>applying</td>
+<td>Aplicando operação na base de dados</td>
+</tr>
+<tr>
+<td>success</td>
+<td>Operação aplicada com sucesso</td>
+</tr>
+<tr>
+<td>error</td>
+<td>Erro ao aplicar operação</td>
+</tr>
+</tbody></table>
+<h2 id='listar-operacoes-de-estoque'>Listar operações de estoque</h2>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://querobolsa.com.br/api/stock_operations"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna uma estrutura JSON como essa:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"stock_operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e8c23c3-fab1-486d-9c0e-c49301305d94"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"success_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"error_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"validation_success_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"validation_error_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-10T03:15:44Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"finished_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-10T03:16:15Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e8c23c3-fab1-486d-9c0e-c49301305d94"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"success_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"error_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"validation_success_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"validation_error_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-12T02:49:20Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"finished_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-12T02:49:26Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Esse endpoint lista todas as operações de estoque.</p>
+<h3 id='requisicao-http'>Requisição HTTP</h3>
+<p><code>GET https://querobolsa.com.br/api/stock_operations</code></p>
+<h3 id='parametros-da-resposta'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>stock_operations</td>
+<td>object array</td>
+<td>Arranjo de objetos com dados de operação de estoque</td>
+</tr>
+<tr>
+<td>[stock_operations] id</td>
+<td>string</td>
+<td>Código identificador de operação de estoque</td>
+</tr>
+<tr>
+<td>[stock_operations] status</td>
+<td>string</td>
+<td>Estado atual da operação de estoque</td>
+</tr>
+<tr>
+<td>[stock_operations] success_count</td>
+<td>integer</td>
+<td>Número de operações no banco de dados realizadas com sucesso</td>
+</tr>
+<tr>
+<td>[stock_operations] error_count</td>
+<td>integer</td>
+<td>Número de operações no banco de dados realizadas que falharam</td>
+</tr>
+<tr>
+<td>[stock_operations] validation_success_count</td>
+<td>integer</td>
+<td>Número de operações no banco de dados que foram validadas com sucesso</td>
+</tr>
+<tr>
+<td>[stock_operations] validation_error_count</td>
+<td>integer</td>
+<td>Número de validações de operações no banco de dados que falharam</td>
+</tr>
+<tr>
+<td>[stock_operations] created_at</td>
+<td>string</td>
+<td>Data e hora combinadas da criação da operação de estoque em formato UTC <a href="https://pt.wikipedia.org/wiki/ISO_8601">ISO 8601</a></td>
+</tr>
+<tr>
+<td>[stock_operations] finished_at</td>
+<td>string</td>
+<td>Data e hora combinadas da finalização da operação de estoque em formato UTC <a href="https://pt.wikipedia.org/wiki/ISO_8601">ISO 8601</a></td>
+</tr>
+</tbody></table>
+<h1 id='erros'>Erros</h1>
+<p>De maneira geral, o Quero Bolsa interpreta as respostas dos serviços de acordo com a especificação abaixo:</p>
+
+<table><thead>
+<tr>
+<th>Código de erro</th>
+<th>Descrição</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>Erro de validação dos parâmetros de entrada</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Cliente do serviço não enviou token de autenticação</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Cliente do serviço não tem permissão para acessar</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Dado não encontrado com o caminho ou parâmetros fornecidos</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>Demais status</td>
+<td>Serão considerados erros internos do servidor. Entre em contato com o setor de tecnologia do Quero Bolsa.</td>
 </tr>
 </tbody></table>
 
@@ -495,9 +1918,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
