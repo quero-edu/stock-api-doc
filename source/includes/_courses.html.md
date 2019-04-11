@@ -269,7 +269,6 @@ curl -X POST "https://querobolsa.com.br/api/courses" \
 {
   "courses": [
     {
-      "id": 809,
       "campus_id": 7024,
       "name": "Direito",
       "level": "Bacharelado (graduação)",
@@ -279,7 +278,6 @@ curl -X POST "https://querobolsa.com.br/api/courses" \
       "max_periods": 10
     },
     {
-      "id": 253,
       "campus_id": 102,
       "name": "MBA em Auditoria",
       "level": "Pós-graduação Lato Sensu",
