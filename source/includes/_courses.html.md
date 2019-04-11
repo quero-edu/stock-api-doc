@@ -2,7 +2,7 @@
 
 ## Atributos de curso
 
-As entidades de curso possuem atributos que possuem 
+As entidades de curso possuem atributos que seguem padrões de preenchimento. Nessa seção, vamos conferir quais são esses atributos e os valores possíveis de cada um.
 
 ### Modalidade `(kind)`
 

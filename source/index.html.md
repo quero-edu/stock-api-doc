@@ -12,6 +12,7 @@ includes:
   - campuses.html
   - courses.html
   - offers.html
+  - stock_operations.html
   - errors.html
 
 search: true
