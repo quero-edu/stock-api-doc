@@ -320,7 +320,6 @@ Esse endpoint cria cursos em lote com informações enviadas em JSON.
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
 | courses | object array | Arranjo de objetos com dados de curso |
-| [courses] id | integer | Código identificador de curso |
 | [courses] campus_id | integer | Código identificador de campus |
 | [courses] name | string | Nome do curso |
 | [courses] level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
