@@ -15,7 +15,7 @@ Status Code: 401 Unauthorized
 www-authenticate: 'Token realm="StockIntegration"'
 ```
 
-Em caso de requisição sem o envio do token será retornado status `401 - Unauthorized`.
+Em caso de requisição sem o envio do token, é retornado status `401 - Unauthorized`.
 
 ## Requisição com token inválido
 
@@ -24,7 +24,7 @@ Formato de token inválido
 Status Code: 400 Bad Request
 ```
 
-Em caso de token em formato inválido será retornado status `400 - Bad Request`.
+Em caso de token em formato inválido, é retornado status `400 - Bad Request`.
 
 ## Requisição com token não autorizado
 
@@ -33,7 +33,7 @@ Não autorizado
 Status Code: 403 Forbidden
 ```
 
-Em caso de token não autorizado será retornado erro `403 - Forbidden`.
+Em caso de token não autorizado, é retornado erro `403 - Forbidden`.
 
 ## Requisição com token sem permissão
 
@@ -52,7 +52,7 @@ Status Code: 200 OK
 }
 ```
 
-Em caso de token válido mas sem permissão de acesso ao recurso específico, retornará o status `200 - OK` com mensagem de erro no payload.
+Em caso de token válido mas sem permissão de acesso ao recurso específico, é retornado o status `200 - OK` com mensagem de erro no payload.
 
 # Login
 
@@ -62,20 +62,20 @@ A sessão é criada por meio da autenticação utilizando uma combinação de us
 
 ## Iniciar uma sessão
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl -X POST "https://querobolsa.com.br/api/sessions" \
   -H 'Content-Type: application/json' \
   -d '{
-    "session": {
+    "authentication": {
       "username": "teste@teste.com",
       "password": "teste123!"
     }
   }'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -83,7 +83,7 @@ curl -X POST "https://querobolsa.com.br/api/sessions" \
 }
 ```
 
-É necessário enviar uma requisição com o `username` e `password` para criar uma sessão.
+É necessário enviar uma requisição com o `username` e `password` para iniciar uma sessão.
 
 A resposta da requisição traz o token da sessão, que ficará válido por 4 horas. Esse token precisará estar presente no campo `Authorization` no cabeçalho das outras ações da API.
 
@@ -95,7 +95,7 @@ A resposta da requisição traz o token da sessão, que ficará válido por 4 ho
 | username | sting | Nome de usuário para login fornecido pelo Quero Bolsa |
 | password | sting | Senha para login fornecido pelo Quero Bolsa |
 
-<aside class="notice">Lembrete - Troque o <code>username</code> e <code>password</code> pelas credenciais fornecidas pelo Quero Bolsa.</aside>
+<aside class="notice">Lembrete - Troque o <code>username</code> e <code>password</code> pelas credenciais fornecidas pela Quero Educação.</aside>
 
 ### Parâmetros da resposta
 

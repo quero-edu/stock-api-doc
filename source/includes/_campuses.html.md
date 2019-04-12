@@ -2,15 +2,15 @@
 
 ## Listar campi
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/campuses" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -67,15 +67,15 @@ Esse endpoint lista todos os campi.
 
 ## Informações de um campus específico
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/campuses/102" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -121,11 +121,11 @@ Esse endpoint traz informações de um campus específico.
 
 ## Inserir campi
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl -X POST "https://querobolsa.com.br/api/campuses" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json' \
   -d @campus_data.json
 ```

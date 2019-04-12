@@ -2,15 +2,15 @@
 
 ## Listar ofertas
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/offers" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -61,15 +61,15 @@ Esse endpoint lista todas as ofertas.
 
 ## Listar ofertas de um campus
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/offers?campus_id=102" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -116,15 +116,15 @@ Esse endpoint lista todos os ofertas de um determinado campus, cujo é enviado o
 
 ## Informações de uma oferta específica
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/offers/1215" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -166,11 +166,11 @@ Esse endpoint traz informações de uma oferta específica.
 
 ## Inserir ofertas
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl -X POST "https://querobolsa.com.br/api/offers" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json' \
   -d @offer_data.json
 ```

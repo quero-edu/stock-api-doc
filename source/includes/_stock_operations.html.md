@@ -26,15 +26,15 @@ Lista de valores possíveis do campo `status`:
 
 ## Listar operações de estoque
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/stock_operations" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {

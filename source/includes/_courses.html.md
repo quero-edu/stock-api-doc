@@ -90,15 +90,15 @@ Segue a tabela com possíveis valores para esse campo:
 
 ## Listar cursos
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/courses" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -149,15 +149,15 @@ Esse endpoint lista todos os cursos.
 
 ## Listar cursos de um campus
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/courses?campus_id=102" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -204,15 +204,15 @@ Esse endpoint lista todos os cursos de um determinado campus, cujo é enviado o 
 
 ## Informações de um curso específico
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl "https://querobolsa.com.br/api/courses/253" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
 
-> O comando acima retorna uma estrutura JSON como essa:
+> Exemplo de retorno JSON para esta requisição:
 
 ```json
 {
@@ -254,11 +254,11 @@ Esse endpoint traz informações de um curso específico.
 
 ## Inserir cursos
 
-> Requisição
+> Exemplo de requisição
 
 ```shell
 curl -X POST "https://querobolsa.com.br/api/courses" \
-  -H 'Authorization: ##########' \
+  -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json' \
   -d @course_data.json
 ```
