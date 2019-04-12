@@ -58,7 +58,7 @@ Em caso de token válido mas sem permissão de acesso ao recurso específico, re
 
 A sessão é criada por meio da autenticação utilizando uma combinação de usuário e senha. Caso seja autenticado com sucesso, o cliente recebe um _token_ válido por 4 horas. Após este período, o _token_ expira e um novo _token_ deve ser solicitado.
 
-Será necessário enviar esse token no cabeçalho das requisições para conseguir fazer as ações da API.
+É necessário enviar este _token_  no cabeçalho das requisições para ter permissão de executar as solicitações desta API.
 
 ## Criar uma sessão
 
