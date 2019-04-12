@@ -6,7 +6,6 @@ A autenticação é realizada por meio de uma combinação de usuário e senha. 
 
 O nome do usuário e a senha são gerados através de um cadastro feito junto à Quero Educação. Para mais informações, contate seu Key Account Manager.
 
-Para mais informações, visite a [documentação de login](#login).
 
 ## Requisição sem token
 
