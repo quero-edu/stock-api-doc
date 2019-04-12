@@ -60,7 +60,7 @@ A sessão é criada por meio da autenticação utilizando uma combinação de us
 
 É necessário enviar este _token_  no cabeçalho das requisições para ter permissão de executar as solicitações desta API.
 
-## Criar uma sessão
+## Iniciar uma sessão
 
 > Requisição
 
