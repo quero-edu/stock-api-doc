@@ -2,7 +2,9 @@
 
 ## Modo de autenticação
 
-A autenticação será feita por sessão de login. O sessão é feita por uma combinação de nome de usuário e senha, cuja é fornecida pelo Quero Bolsa.
+A autenticação é realizada por meio de uma combinação de usuário e senha. Caso a autenticação seja realizada com sucesso, o cliente receberá um token válido para a sessão por um tempo determinado, conforme descrito na [documentação de login](#login) 
+
+O nome do usuário e a senha são gerados através de um cadastro feito junto à Quero Educação. Para mais informações, contate seu Key Account Manager.
 
 Para mais informações, visite a [documentação de login](#login).
 
