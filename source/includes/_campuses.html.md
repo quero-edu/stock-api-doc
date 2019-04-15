@@ -43,7 +43,7 @@ curl "https://querobolsa.com.br/api/campuses" \
 }
 ```
 
-Esse endpoint lista todos os campi.
+Lista os campus de uma dada faculdade. Apenas faculdades associadas ao usuário podem ser solicitadas. Em outros casos, a API retorna `404 - Not Found`.
 
 ### Requisição HTTP
 
@@ -92,7 +92,7 @@ curl "https://querobolsa.com.br/api/campuses/102" \
 }
 ```
 
-Esse endpoint traz informações de um campus específico.
+Retorna informações de um campus específico.
 
 ### Requisição HTTP
 
@@ -183,7 +183,7 @@ Esse endpoint cria campus em lote com informações enviadas em JSON.
 `POST https://querobolsa.com.br/api/campuses/`
 
 <aside class="notice">
-  A resposta da requisição carrega o campo <code>operation_id</code>.
+  A resposta da requisição retorna o <code>operation_id</code>, que pode ser utilizado para obter os detalhes da operação, como o progresso.
 
   Para mais informações, acesse a <a href="#operacoes-de-estoque">documentação de operações de estoque</a>.
 </aside>

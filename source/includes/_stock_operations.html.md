@@ -1,6 +1,6 @@
 # Operações de estoque
 
-Todas as operações de inserção do estoque são feitas em processos assíncronos. Para ter informações do processo de execução das operações é fornecido o ID da operação no fim de toda ação de inserção da API.
+Todas as operações de atualização do estoque são feitas em processos assíncronos. Para ter informações do progresso e estado atual da operação, é fornecido um identificador único da operação no fim de toda ação de atualização da API.
 
 Com esse ID, é possível saber o estado atual da operação, quantas inserções foram feitas com sucesso, quantas inserções tiveram falhas ao serem executadas, entre outras informações.
 

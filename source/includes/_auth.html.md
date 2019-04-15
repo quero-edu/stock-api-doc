@@ -85,7 +85,7 @@ curl -X POST "https://querobolsa.com.br/api/sessions" \
 
 É necessário enviar uma requisição com o `username` e `password` para iniciar uma sessão.
 
-A resposta da requisição traz o token da sessão, que ficará válido por 4 horas. Esse token precisará estar presente no campo `Authorization` no cabeçalho das outras ações da API.
+A resposta da requisição retorna o token da sessão, que ficará válido por 4 horas. Esse token precisará estar presente no campo `Authorization` no cabeçalho das outras ações da API.
 
 ### Parâmetros para criar uma sessão
 

@@ -20,7 +20,8 @@ curl "https://querobolsa.com.br/api/offers" \
       "course_id": 253,
       "full_price": 299.99,
       "discount_percentage": "50%",
-      "price_with_discount": 149.99,
+      "regressive_commercial_discount": "0%",
+      "fixed_commercial_discount": "0%",
       "enrollment_semester": "2019.1",
       "end_date": "2019-06-30",
       "number_of_installments": 12
@@ -30,7 +31,8 @@ curl "https://querobolsa.com.br/api/offers" \
       "course_id": 809,
       "full_price": 649.00,
       "discount_percentage": "25%",
-      "price_with_discount": 486.75,
+      "regressive_commercial_discount": "0%",
+      "fixed_commercial_discount": "0%",
       "enrollment_semester": "2019.1",
       "end_date": "2019-03-31",
       "number_of_installments": 60
@@ -39,7 +41,7 @@ curl "https://querobolsa.com.br/api/offers" \
 }
 ```
 
-Esse endpoint lista todas as ofertas.
+Lista as ofertas disponibilizadas por uma dada instituição.
 
 ### Requisição HTTP
 
@@ -54,9 +56,10 @@ Esse endpoint lista todas as ofertas.
 | [offers] course_id | integer | Código identificador de curso |
 | [offers] full_price | float | Preço do curso sem desconto |
 | [offers] discount_percentage | string | Porcentagem de desconto do Quero Bolsa |
-| [offers] price_with_discount | float | Preço do curso aplicando o desconto do Quero Bolsa |
+| [offers] regressive_commercial_discount | string | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| [offers] fixed_commercial_discount | string | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
 | [offers] enrollment_semester | string | Semestre de matrícula do curso |
-| [offers] end_date | string | Data de fim da oferta |
+| [offers] end_date | string | Data de término da validade da oferta |
 | [offers] number_of_installments | integer | Número de parcelas que o curso será pago |
 
 ## Listar ofertas de um campus
@@ -79,7 +82,8 @@ curl "https://querobolsa.com.br/api/offers?campus_id=102" \
       "course_id": 253,
       "full_price": 299.99,
       "discount_percentage": "50%",
-      "price_with_discount": 149.99,
+      "regressive_commercial_discount": "0%",
+      "fixed_commercial_discount": "0%",
       "enrollment_semester": "2019.1",
       "end_date": "2019-06-30",
       "number_of_installments": 12
@@ -109,9 +113,10 @@ Esse endpoint lista todos os ofertas de um determinado campus, cujo é enviado o
 | [offers] course_id | integer | Código identificador de curso |
 | [offers] full_price | float | Preço do curso sem desconto |
 | [offers] discount_percentage | string | Porcentagem de desconto do Quero Bolsa |
-| [offers] price_with_discount | float | Preço do curso aplicando o desconto do Quero Bolsa |
+| [offers] regressive_commercial_discount | string | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| [offers] fixed_commercial_discount | string | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
 | [offers] enrollment_semester | string | Semestre de matrícula do curso |
-| [offers] end_date | string | Data de fim da oferta |
+| [offers] end_date | string | Data de término da validade da oferta |
 | [offers] number_of_installments | integer | Número de parcelas que o curso será pago |
 
 ## Informações de uma oferta específica
@@ -132,7 +137,8 @@ curl "https://querobolsa.com.br/api/offers/1215" \
   "course_id": 253,
   "full_price": 299.99,
   "discount_percentage": "50%",
-  "price_with_discount": 149.99,
+  "regressive_commercial_discount": "0%",
+  "fixed_commercial_discount": "0%",
   "enrollment_semester": "2019.1",
   "end_date": "2019-06-30",
   "number_of_installments": 12
@@ -159,9 +165,10 @@ Esse endpoint traz informações de uma oferta específica.
 | course_id | integer | Código identificador de curso |
 | full_price | float | Preço do curso sem desconto |
 | discount_percentage | string | Porcentagem de desconto do Quero Bolsa |
-| price_with_discount | float | Preço do curso aplicando o desconto do Quero Bolsa |
+| regressive_commercial_discount | string | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| fixed_commercial_discount | string | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
 | enrollment_semester | string | Semestre de matrícula do curso |
-| end_date | string | Data de fim da oferta |
+| end_date | string | Data de término da validade da oferta |
 | number_of_installments | integer | Número de parcelas que o curso será pago |
 
 ## Inserir ofertas
@@ -184,7 +191,6 @@ curl -X POST "https://querobolsa.com.br/api/offers" \
       "course_id": 253,
       "full_price": 299.99,
       "discount_percentage": "50%",
-      "price_with_discount": 149.99,
       "enrollment_semester": "2019.1",
       "end_date": "2019-06-30",
       "number_of_installments": 12
@@ -193,7 +199,6 @@ curl -X POST "https://querobolsa.com.br/api/offers" \
       "course_id": 809,
       "full_price": 649.00,
       "discount_percentage": "25%",
-      "price_with_discount": 486.75,
       "enrollment_semester": "2019.1",
       "end_date": "2019-03-31",
       "number_of_installments": 60
@@ -235,9 +240,10 @@ Esse endpoint cria ofertas em lote com informações enviadas em JSON.
 | [offers] course_id | integer | Código identificador de curso |
 | [offers] full_price | float | Preço do curso sem desconto |
 | [offers] discount_percentage | string | Porcentagem de desconto do Quero Bolsa |
-| [offers] price_with_discount | float | Preço do curso aplicando o desconto do Quero Bolsa |
+| [offers] regressive_commercial_discount | string | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| [offers] fixed_commercial_discount | string | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
 | [offers] enrollment_semester | string | Semestre de matrícula do curso |
-| [offers] end_date | string | Data de fim da oferta |
+| [offers] end_date | string | Data de término da validade da oferta |
 | [offers] number_of_installments | integer | Número de parcelas que o curso será pago |
 
 ### Parâmetros da resposta

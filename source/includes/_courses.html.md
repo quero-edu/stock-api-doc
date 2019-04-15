@@ -2,7 +2,7 @@
 
 ## Atributos de curso
 
-As entidades de curso possuem atributos que seguem padrões de preenchimento. Nessa seção, vamos conferir quais são esses atributos e os valores possíveis de cada um.
+Alguns campos do curso possuem atributos com um conjunto restrito de valores válidos (_enumeration_). Esta seção aborda estes campos.
 
 ### Modalidade `(kind)`
 
@@ -69,7 +69,7 @@ Segue a tabela com possíveis valores para esse campo:
 
 ### Periodicidade `(period_kind)`
 
-O atributo `period_kind` indica a periodicidade curso.
+O atributo `period_kind` indica a periodicidade do curso.
 
 A peridicidade é a forma como o curso está dividido e também serve para informar a duração do mesmo quando combinado com o campo `max_periods`, que indica a quantidade dessa periodicidade. Por exemplo: se uma entidade de curso possui o valor `6` no atributo `max_periods` e `semestre` em `period_kind`, isso quer dizer que é um curso com duração de 6 semestres.
 
@@ -127,7 +127,7 @@ curl "https://querobolsa.com.br/api/courses" \
 }
 ```
 
-Esse endpoint lista todos os cursos.
+Lista todos os cursos disponibilizados pela universidade.
 
 ### Requisição HTTP
 
