@@ -20,8 +20,12 @@ search: true
 
 # Introdução
 
-O grupo Kroton Educacional é um dos principais parceiros do Quero Bolsa, trazendo para nossa plataforma diversas bolsas de estudo que permitem o ingresso de muitos alunos ao ensino superior. Como mais um passo a facilitar esse processo de gerenciamento do estoque de bolsas, garantindo a validade do benefício, acordamos a implementação de serviços automatizados para integração dos estoques de cursos. O contexto em questão refere-se a uma sincronização das ofertas ilimitadas de cursos à distância da universidade, assim como os campuses associados aos cursos.
+A Quero Educação deu mais um passo no gerenciamento do estoque de bolsas de estudo por seus parceiros e agora esse processo passou por uma grande melhoria. Tudo isso para estreitar ainda mais os laços e reafirmar seu compromisso como Marketplace.
 
-O objetivo desse serviço é garantir a consistência entre as bases de dados, sinalizando quais cursos estão divergentes na base do Quero Bolsa em relação a base do grupo Kroton. Uma vez que esse serviço retorne os resultados, realizaremos as devidas operações de atualização de cursos com valores divergentes, criação de cursos para os cursos faltantes e o processo de desabilitar os cursos para os cursos excedentes. O mesmo processo deve ser aplicado aos campi.
+A partir de agora abrimos nosso modelo de estoque para ser acessado programaticamente via conjunto de APIs. O serviço permitirá que o parceiro consulte, crie, altere ou delete seu portfólio de bolsas como desejar.
 
-Para otimizar esse processo de sincronização de cursos disponíveis, gostaríamos de propor a implementação de uma Interface de Aplicações (API) REST para atender esses devidos fins, composta por três serviços interdependentes.
+O objetivo dessa melhoria é garantir a consistência entre as bases de dados da Quero Educação e da instituição de ensino superior, além de dar uma maior liberdade e autonomia para que se opere as bolsas.
+
+Em poucas palavras, por meio das APIs o parceiro poderá integrar suas aplicações (sistemas de uso interno) diretamente no nosso modelo e, assim, fazer a gestão de suas bolsas de estudo do modo que preferir.
+
+Para otimizar esse processo, implementamos uma Interface de Aplicações (API) REST. Ela é composta por três serviços interdependentes (“Campi”, “Cursos” e “Ofertas”), os quais possuem seus respectivos métodos, conforme especificado abaixo.
