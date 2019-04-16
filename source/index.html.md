@@ -1,9 +1,6 @@
 ---
 title: API de Integração de Estoque
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-
 toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
