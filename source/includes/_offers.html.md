@@ -10,11 +10,12 @@ curl "https://querobolsa.com.br/api/offers" \
   -H 'Content-Type: application/json'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {
-  "offers": [
+  "has_more": false,
+  "items": [
     {
       "id": 1215,
       "course_id": 253,
@@ -43,6 +44,8 @@ curl "https://querobolsa.com.br/api/offers" \
 
 Lista as ofertas disponibilizadas por uma dada instituição.
 
+Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+
 ### Requisição HTTP
 
 `GET https://querobolsa.com.br/api/offers`
@@ -51,16 +54,16 @@ Lista as ofertas disponibilizadas por uma dada instituição.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| offers | object array | Arranjo de objetos com dados de oferta |
-| [offers] id | integer | Código identificador de oferta |
-| [offers] course_id | integer | Código identificador de curso |
-| [offers] full_price | float | Preço do curso sem desconto |
-| [offers] discount_percentage | string | Porcentagem de desconto do Quero Bolsa |
-| [offers] regressive_commercial_discount | string | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
-| [offers] fixed_commercial_discount | string | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
-| [offers] enrollment_semester | string | Semestre de matrícula do curso |
-| [offers] end_date | string | Data de término da validade da oferta |
-| [offers] number_of_installments | integer | Número de parcelas que o curso será pago |
+| items | object array | Arranjo de objetos com dados de oferta |
+| id | integer | Código identificador de oferta |
+| course_id | integer | Código identificador de curso |
+| full_price | float | Preço do curso sem desconto |
+| discount_percentage | string | Porcentagem de desconto do Quero Bolsa |
+| regressive_commercial_discount | string | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| fixed_commercial_discount | string | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
+| enrollment_semester | string | Semestre de matrícula do curso |
+| end_date | string | Data de término da validade da oferta |
+| number_of_installments | integer | Número de parcelas que o curso será pago |
 
 ## Listar ofertas de um campus
 
@@ -72,11 +75,12 @@ curl "https://querobolsa.com.br/api/offers?campus_id=102" \
   -H 'Content-Type: application/json'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {
-  "offers": [
+  "has_more": false,
+  "items": [
     {
       "id": 1215,
       "course_id": 253,
@@ -94,6 +98,8 @@ curl "https://querobolsa.com.br/api/offers?campus_id=102" \
 
 Esse endpoint lista todos os ofertas de um determinado campus, cujo é enviado o ID como parâmetro da requisição.
 
+Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+
 ### Requisição HTTP
 
 `GET https://querobolsa.com.br/api/offers?campus_id=<CAMPUS_ID>`
@@ -108,16 +114,16 @@ Esse endpoint lista todos os ofertas de um determinado campus, cujo é enviado o
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| offers | object array | Arranjo de objetos com dados de oferta |
-| [offers] id | integer | Código identificador de oferta |
-| [offers] course_id | integer | Código identificador de curso |
-| [offers] full_price | float | Preço do curso sem desconto |
-| [offers] discount_percentage | string | Porcentagem de desconto do Quero Bolsa |
-| [offers] regressive_commercial_discount | string | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
-| [offers] fixed_commercial_discount | string | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
-| [offers] enrollment_semester | string | Semestre de matrícula do curso |
-| [offers] end_date | string | Data de término da validade da oferta |
-| [offers] number_of_installments | integer | Número de parcelas que o curso será pago |
+| items | object array | Arranjo de objetos com dados de oferta |
+| id | integer | Código identificador de oferta |
+| course_id | integer | Código identificador de curso |
+| full_price | float | Preço do curso sem desconto |
+| discount_percentage | string | Porcentagem de desconto do Quero Bolsa |
+| regressive_commercial_discount | string | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| fixed_commercial_discount | string | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
+| enrollment_semester | string | Semestre de matrícula do curso |
+| end_date | string | Data de término da validade da oferta |
+| number_of_installments | integer | Número de parcelas que o curso será pago |
 
 ## Informações de uma oferta específica
 
@@ -129,7 +135,7 @@ curl "https://querobolsa.com.br/api/offers/1215" \
   -H 'Content-Type: application/json'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {

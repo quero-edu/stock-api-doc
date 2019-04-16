@@ -10,11 +10,12 @@ curl "https://querobolsa.com.br/api/campuses" \
   -H 'Content-Type: application/json'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {
-  "campuses": [
+  "has_more": false,
+  "items": [
     {
       "id": 102,
       "name": "Caxias",
@@ -45,6 +46,8 @@ curl "https://querobolsa.com.br/api/campuses" \
 
 Lista os campus de uma dada faculdade. Apenas faculdades associadas ao usuário podem ser solicitadas. Em outros casos, a API retorna `404 - Not Found`.
 
+Campi são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+
 ### Requisição HTTP
 
 `GET https://querobolsa.com.br/api/campuses`
@@ -53,17 +56,17 @@ Lista os campus de uma dada faculdade. Apenas faculdades associadas ao usuário 
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| campuses | object array | Arranjo de objetos com dados de campus |
-| [campuses] id | integer | Código identificador de campus |
-| [campuses] name | string | Nome do campus |
-| [campuses] address | string | Endereço do campus |
-| [campuses] neighborhood | string | Bairro do campus |
-| [campuses] city | string | Cidade do campus |
-| [campuses] state | string | Estado do campus |
-| [campuses] zip_code | string | Código CEP do campus |
-| [campuses] phone | string | Telefone do campus |
-| [campuses] latitude | float | Coordenada de latitude do campus |
-| [campuses] longitude | float | Coordenada de longitude do campus |
+| items | object array | Arranjo de objetos com dados de campus |
+| id | integer | Código identificador de campus |
+| name | string | Nome do campus |
+| address | string | Endereço do campus |
+| neighborhood | string | Bairro do campus |
+| city | string | Cidade do campus |
+| state | string | Estado do campus |
+| zip_code | string | Código CEP do campus |
+| phone | string | Telefone do campus |
+| latitude | float | Coordenada de latitude do campus |
+| longitude | float | Coordenada de longitude do campus |
 
 ## Informações de um campus específico
 
@@ -75,7 +78,7 @@ curl "https://querobolsa.com.br/api/campuses/102" \
   -H 'Content-Type: application/json'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {

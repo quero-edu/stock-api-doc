@@ -98,21 +98,12 @@ curl "https://querobolsa.com.br/api/courses" \
   -H 'Content-Type: application/json'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {
-  "courses": [
-    {
-      "id": 809,
-      "campus_id": 7024,
-      "name": "Direito",
-      "level": "Bacharelado (graduação)",
-      "kind": "Presencial",
-      "shift": "Noite",
-      "period_kind": "semestre",
-      "max_periods": 10
-    },
+  "has_more": false,
+  "items": [
     {
       "id": 253,
       "campus_id": 102,
@@ -122,12 +113,24 @@ curl "https://querobolsa.com.br/api/courses" \
       "shift": "Virtual",
       "period_kind": "mes",
       "max_periods": 6
+    },
+    {
+      "id": 809,
+      "campus_id": 7024,
+      "name": "Direito",
+      "level": "Bacharelado (graduação)",
+      "kind": "Presencial",
+      "shift": "Noite",
+      "period_kind": "semestre",
+      "max_periods": 10
     }
   ]
 }
 ```
 
 Lista todos os cursos disponibilizados pela universidade.
+
+Cursos são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
 
 ### Requisição HTTP
 
@@ -137,15 +140,15 @@ Lista todos os cursos disponibilizados pela universidade.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| courses | object array | Arranjo de objetos com dados de curso |
-| [courses] id | integer | Código identificador de curso |
-| [courses] campus_id | integer | Código identificador de campus |
-| [courses] name | string | Nome do curso |
-| [courses] level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
-| [courses] kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
-| [courses] shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
-| [courses] period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
-| [courses] max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| items | object array | Arranjo de objetos com dados de curso |
+| id | integer | Código identificador de curso |
+| campus_id | integer | Código identificador de campus |
+| name | string | Nome do curso |
+| level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
+| kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
+| shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
+| period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
 
 ## Listar cursos de um campus
 
@@ -157,11 +160,12 @@ curl "https://querobolsa.com.br/api/courses?campus_id=102" \
   -H 'Content-Type: application/json'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {
-  "courses": [
+  "has_more": false,
+  "items": [
     {
       "id": 253,
       "campus_id": 102,
@@ -178,6 +182,8 @@ curl "https://querobolsa.com.br/api/courses?campus_id=102" \
 
 Esse endpoint lista todos os cursos de um determinado campus, cujo é enviado o ID como parâmetro da requisição.
 
+Cursos são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+
 ### Requisição HTTP
 
 `GET https://querobolsa.com.br/api/courses?campus_id=<CAMPUS_ID>`
@@ -192,15 +198,15 @@ Esse endpoint lista todos os cursos de um determinado campus, cujo é enviado o 
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| courses | object array | Arranjo de objetos com dados de curso |
-| [courses] id | integer | Código identificador de curso |
-| [courses] campus_id | integer | Código identificador de campus |
-| [courses] name | string | Nome do curso |
-| [courses] level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
-| [courses] kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
-| [courses] shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
-| [courses] period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
-| [courses] max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| items | object array | Arranjo de objetos com dados de curso |
+| id | integer | Código identificador de curso |
+| campus_id | integer | Código identificador de campus |
+| name | string | Nome do curso |
+| level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
+| kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
+| shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
+| period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
 
 ## Informações de um curso específico
 
@@ -212,7 +218,7 @@ curl "https://querobolsa.com.br/api/courses/253" \
   -H 'Content-Type: application/json'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {

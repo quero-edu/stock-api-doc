@@ -2,10 +2,9 @@
 
 ## Modo de autenticação
 
-A autenticação é realizada por meio de uma combinação de usuário e senha. Caso a autenticação seja realizada com sucesso, o cliente receberá um token válido para a sessão por um tempo determinado, conforme descrito na [documentação de login](#login) 
+A autenticação é realizada por meio de uma combinação de usuário e senha. Caso a autenticação seja realizada com sucesso, o cliente receberá um token válido para a sessão por um tempo determinado, conforme descrito na [documentação de login](#login).
 
 O nome do usuário e a senha são gerados através de um cadastro feito junto à Quero Educação. Para mais informações, contate seu Key Account Manager.
-
 
 ## Requisição sem token
 
@@ -75,7 +74,7 @@ curl -X POST "https://querobolsa.com.br/api/sessions" \
   }'
 ```
 
-> Exemplo de retorno JSON para esta requisição:
+> Exemplo de retorno JSON para esta requisição
 
 ```json
 {
