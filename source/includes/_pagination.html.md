@@ -136,10 +136,6 @@ curl "https://querobolsa.com.br/api/campuses?ending_before=14202" \
   -H 'Content-Type: application/json'
 ```
 
-```bash
-curl --header "Authorization: Token ########" --header "Content-Type: application/json" https://queroalunos.com/api/v1/admissions?ending_before=12369
-```
-
 > Retorno
 
 ```json

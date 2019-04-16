@@ -44,7 +44,7 @@ curl "https://querobolsa.com.br/api/offers" \
 
 Lista as ofertas disponibilizadas por uma dada instituição.
 
-Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a [seção de paginação](#paginacao).
 
 ### Requisição HTTP
 
@@ -54,6 +54,7 @@ Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela últi
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
+| has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de oferta |
 | id | integer | Código identificador de oferta |
 | course_id | integer | Código identificador de curso |
@@ -98,7 +99,7 @@ curl "https://querobolsa.com.br/api/offers?campus_id=102" \
 
 Esse endpoint lista todos os ofertas de um determinado campus, cujo é enviado o ID como parâmetro da requisição.
 
-Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a [seção de paginação](#paginacao).
 
 ### Requisição HTTP
 
@@ -114,6 +115,7 @@ Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela últi
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
+| has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de oferta |
 | id | integer | Código identificador de oferta |
 | course_id | integer | Código identificador de curso |

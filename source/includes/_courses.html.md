@@ -130,7 +130,7 @@ curl "https://querobolsa.com.br/api/courses" \
 
 Lista todos os cursos disponibilizados pela universidade.
 
-Cursos são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+Cursos são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a [seção de paginação](#paginacao).
 
 ### Requisição HTTP
 
@@ -140,6 +140,7 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
+| has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de curso |
 | id | integer | Código identificador de curso |
 | campus_id | integer | Código identificador de campus |
@@ -182,7 +183,7 @@ curl "https://querobolsa.com.br/api/courses?campus_id=102" \
 
 Esse endpoint lista todos os cursos de um determinado campus, cujo é enviado o ID como parâmetro da requisição.
 
-Cursos são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+Cursos são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a [seção de paginação](#paginacao).
 
 ### Requisição HTTP
 
@@ -198,6 +199,7 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
+| has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de curso |
 | id | integer | Código identificador de curso |
 | campus_id | integer | Código identificador de campus |

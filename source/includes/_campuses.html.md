@@ -46,7 +46,7 @@ curl "https://querobolsa.com.br/api/campuses" \
 
 Lista os campus de uma dada faculdade. Apenas faculdades associadas ao usuário podem ser solicitadas. Em outros casos, a API retorna `404 - Not Found`.
 
-Campi são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a seção de paginação.
+Campi são retornados em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, `has_more` retorna `true` indicando que é possível usar o parâmetro `ending_before` para consultar objetos antecessores à lista atual. Para mais informações, consulte a [seção de paginação](#paginacao).
 
 ### Requisição HTTP
 
@@ -56,6 +56,7 @@ Campi são retornados em páginas de até 1000 elementos, ordenadas pela última
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
+| has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de campus |
 | id | integer | Código identificador de campus |
 | name | string | Nome do campus |
