@@ -56,7 +56,7 @@ Campi são retornados em páginas de até 1000 elementos, ordenadas pela última
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 
 ### Parâmetros da resposta
 
@@ -112,7 +112,7 @@ Retorna informações de um campus específico.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 | CAMPUS_ID | path | ID do campus que deseja resgatar informações |
 
 ### Parâmetros da resposta
@@ -201,7 +201,7 @@ Caso o ID do campus não seja enviado, uma **validação** com a base de dados s
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 
 <aside class="notice">
   A resposta da requisição retorna o <code>operation_id</code>, que pode ser utilizado para obter os detalhes da operação, como o progresso.

@@ -180,7 +180,7 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 
 ### Parâmetros da resposta
 
@@ -278,8 +278,8 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
-| CAMPUS_ID | query | ID do campus onde deseja resgatar cursos |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
+| CAMPUS_ID | path | ID do campus onde deseja resgatar cursos |
 
 ### Parâmetros da resposta
 
@@ -371,7 +371,7 @@ Esse endpoint traz informações de um curso específico.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 | COURSE_ID | path | ID do curso que deseja resgatar informações |
 
 ### Parâmetros da resposta
@@ -481,7 +481,7 @@ Esse endpoint cria cursos em lote com informações enviadas em JSON.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 
 <aside class="notice">
   A resposta da requisição carrega o campo <code>operation_id</code>.

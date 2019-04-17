@@ -54,7 +54,7 @@ Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela últi
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 
 ### Parâmetros da resposta
 
@@ -115,8 +115,8 @@ Ofertas são retornadas em páginas de até 1000 elementos, ordenadas pela últi
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
-| CAMPUS_ID | query | ID do campus onde deseja resgatar ofertas |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
+| CAMPUS_ID | path | ID do campus onde deseja resgatar ofertas |
 
 ### Parâmetros da resposta
 
@@ -170,7 +170,7 @@ Esse endpoint traz informações de uma oferta específica.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 | OFFER_ID | path | ID da oferta que deseja resgatar informações |
 
 ### Parâmetros da resposta
@@ -246,7 +246,7 @@ Esse endpoint cria ofertas em lote com informações enviadas em JSON.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| UNIVERSITY_ID | path | ID da universidade onde deseja realizar a ação |
 
 <aside class="notice">
   A resposta da requisição carrega o campo <code>operation_id</code>.

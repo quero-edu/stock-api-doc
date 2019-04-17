@@ -59,7 +59,7 @@ Retorna dados de operação de estoque específica.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| STOCK_OPERATION_ID | query | ID da universidade onde deseja realizar a ação |
+| STOCK_OPERATION_ID | path | ID da universidade onde deseja realizar a ação |
 
 ### Parâmetros da resposta
 
