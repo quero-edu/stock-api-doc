@@ -182,6 +182,10 @@ Status Code: 200 OK
 
 Esse endpoint cria campus em lote com informações enviadas em JSON.
 
+Na inserção de campus, caso o ID seja enviado, o serviço irá fazer uma operação de **atualização** de informação, sobrescrevendo os dados enviando no modelo do banco.
+
+Caso o ID do campus não seja enviado, uma **validação** com a base de dados será feita, a fim de evitar campi duplicados na nossa base.
+
 ### Requisição HTTP
 
 `POST https://querobolsa.com.br/api/campuses/`
