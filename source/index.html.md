@@ -9,7 +9,6 @@ includes:
   - pagination.html
   - campuses.html
   - courses.html
-  - offers.html
   - stock_operations.html
   - errors.html
 
@@ -26,4 +25,4 @@ O objetivo dessa melhoria é garantir a consistência entre as bases de dados da
 
 Em poucas palavras, por meio das APIs o parceiro poderá integrar suas aplicações (sistemas de uso interno) diretamente no nosso modelo e, assim, fazer a gestão de suas bolsas de estudo do modo que preferir.
 
-Para otimizar esse processo, implementamos uma Interface de Aplicações (API) REST. Ela é composta por três serviços interdependentes (“Campi”, “Cursos” e “Ofertas”), os quais possuem seus respectivos métodos, conforme especificado abaixo.
+Para otimizar esse processo, implementamos uma Interface de Aplicações (API) REST. Ela é composta por dois serviços interdependentes (“Campi” e “Cursos”), os quais possuem seus respectivos métodos, conforme especificado abaixo.

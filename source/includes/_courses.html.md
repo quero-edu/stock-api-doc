@@ -112,7 +112,16 @@ curl "https://querobolsa.com.br/api/courses" \
       "kind": "EaD",
       "shift": "Virtual",
       "period_kind": "mes",
-      "max_periods": 6
+      "max_periods": 6,
+      "enrollment_semester": "2019.1",
+      "full_price": 299.99,
+      "discount_percentage": 50.00,
+      "price_with_discount": 149.99,
+      "fixed_commercial_discount": 20.00,
+      "end_date": "2019-06-30",
+      "number_of_installments": 12,
+      "extra_warning": "* &bull; Após garantir a bolsa, o aluno deverá entrar em contato com a faculdade pelo número (00) 0000-0000",
+      "extra_benefit": "* &bull; Primeira parcela grátis"
     },
     {
       "id": 809,
@@ -122,7 +131,16 @@ curl "https://querobolsa.com.br/api/courses" \
       "kind": "Presencial",
       "shift": "Noite",
       "period_kind": "semestre",
-      "max_periods": 10
+      "max_periods": 10,
+      "enrollment_semester": "2019.1",
+      "full_price": 649.00,
+      "discount_percentage": 25.00,
+      "price_with_discount": 486.75,
+      "regressive_commercial_discount": 10.00,
+      "end_date": "2019-03-31",
+      "number_of_installments": 60,
+      "extra_warning": "* &bull; Após garantir a bolsa, o aluno deverá entrar em contato com a faculdade pelo número (00) 0000-0000",
+      "extra_benefit": "* &bull; Primeira mensalidade grátis"
     }
   ]
 }
@@ -150,6 +168,16 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 | shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
 | period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
 | max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| enrollment_semester | string | Semestre de matrícula do curso |
+| full_price | float | Preço do curso sem desconto |
+| discount_percentage | float | Porcentagem de desconto do Quero Bolsa |
+| price_with_discount | float | Preço do curso com desconto |
+| regressive_commercial_discount | float | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| fixed_commercial_discount | float | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
+| end_date | string | Data de término da validade da oferta |
+| number_of_installments | integer | Número de parcelas que o curso será pago. Caso não informado, será considerado que o curso é pago em mensalidades e na mesma duração do mesmo. |
+| extra_warning | string | Avisos sobre a bolsa. Essa informação é adquirida diretamente dos meios de comunicação da faculdade por um time da Quero Educação |
+| extra_benefit | string | Benefícios adicionais da bolsa. Essa informação é adquirida diretamente dos meios de comunicação da faculdade por um time da Quero Educação |
 
 ## Listar cursos de um campus
 
@@ -175,7 +203,16 @@ curl "https://querobolsa.com.br/api/courses?campus_id=102" \
       "kind": "EaD",
       "shift": "Virtual",
       "period_kind": "mes",
-      "max_periods": 6
+      "max_periods": 6,
+      "enrollment_semester": "2019.1",
+      "full_price": 299.99,
+      "discount_percentage": 50.00,
+      "price_with_discount": 149.99,
+      "fixed_commercial_discount": 20.00,
+      "end_date": "2019-06-30",
+      "number_of_installments": 12,
+      "extra_warning": "* &bull; Após garantir a bolsa, o aluno deverá entrar em contato com a faculdade pelo número (00) 0000-0000",
+      "extra_benefit": "* &bull; Primeira parcela grátis"
     }
   ]
 }
@@ -209,6 +246,16 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 | shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
 | period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
 | max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| enrollment_semester | string | Semestre de matrícula do curso |
+| full_price | float | Preço do curso sem desconto |
+| discount_percentage | float | Porcentagem de desconto do Quero Bolsa |
+| price_with_discount | float | Preço do curso com desconto |
+| regressive_commercial_discount | float | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| fixed_commercial_discount | float | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
+| end_date | string | Data de término da validade da oferta |
+| number_of_installments | integer | Número de parcelas que o curso será pago. Caso não informado, será considerado que o curso é pago em mensalidades e na mesma duração do mesmo. |
+| extra_warning | string | Avisos sobre a bolsa. Essa informação é adquirida diretamente dos meios de comunicação da faculdade por um time da Quero Educação |
+| extra_benefit | string | Benefícios adicionais da bolsa. Essa informação é adquirida diretamente dos meios de comunicação da faculdade por um time da Quero Educação |
 
 ## Informações de um curso específico
 
@@ -231,7 +278,16 @@ curl "https://querobolsa.com.br/api/courses/253" \
   "kind": "EaD",
   "shift": "Virtual",
   "period_kind": "mes",
-  "max_periods": 6
+  "max_periods": 6,
+  "enrollment_semester": "2019.1",
+  "full_price": 299.99,
+  "discount_percentage": 50.00,
+  "price_with_discount": 149.99,
+  "fixed_commercial_discount": 20.00,
+  "end_date": "2019-06-30",
+  "number_of_installments": 12,
+  "extra_warning": "* &bull; Após garantir a bolsa, o aluno deverá entrar em contato com a faculdade pelo número (00) 0000-0000",
+  "extra_benefit": "* &bull; Primeira parcela grátis"
 }
 ```
 
@@ -259,6 +315,16 @@ Esse endpoint traz informações de um curso específico.
 | shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
 | period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
 | max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| enrollment_semester | string | Semestre de matrícula do curso |
+| full_price | float | Preço do curso sem desconto |
+| discount_percentage | float | Porcentagem de desconto do Quero Bolsa |
+| price_with_discount | float | Preço do curso com desconto |
+| regressive_commercial_discount | float | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| fixed_commercial_discount | float | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
+| end_date | string | Data de término da validade da oferta |
+| number_of_installments | integer | Número de parcelas que o curso será pago. Caso não informado, será considerado que o curso é pago em mensalidades e na mesma duração do mesmo. |
+| extra_warning | string | Avisos sobre a bolsa. Essa informação é adquirida diretamente dos meios de comunicação da faculdade por um time da Quero Educação |
+| extra_benefit | string | Benefícios adicionais da bolsa. Essa informação é adquirida diretamente dos meios de comunicação da faculdade por um time da Quero Educação |
 
 ## Inserir cursos
 
@@ -277,22 +343,34 @@ curl -X POST "https://querobolsa.com.br/api/courses" \
 {
   "courses": [
     {
-      "campus_id": 7024,
-      "name": "Direito",
-      "level": "Bacharelado (graduação)",
-      "kind": "Presencial",
-      "shift": "Noite",
-      "period_kind": "semestre",
-      "max_periods": 10
-    },
-    {
       "campus_id": 102,
       "name": "MBA em Auditoria",
       "level": "Pós-graduação Lato Sensu",
       "kind": "EaD",
       "shift": "Virtual",
       "period_kind": "mes",
-      "max_periods": 6
+      "max_periods": 6,
+      "enrollment_semester": "2019.1",
+      "full_price": 299.99,
+      "discount_percentage": 50.00,
+      "fixed_commercial_discount": 20.00,
+      "regressive_commercial_discount": 10.00,
+      "end_date": "2019-06-30",
+      "number_of_installments": 12
+    },
+    {
+      "campus_id": 7024,
+      "name": "Direito",
+      "level": "Bacharelado (graduação)",
+      "kind": "Presencial",
+      "shift": "Noite",
+      "period_kind": "semestre",
+      "max_periods": 10,
+      "enrollment_semester": "2019.1",
+      "full_price": 649.00,
+      "price_with_discount": 486.75,
+      "regressive_commercial_discount": 10.00,
+      "end_date": "2019-03-31"
     }
   ]
 }
@@ -312,6 +390,8 @@ Status Code: 200 OK
 ```
 
 Esse endpoint cria cursos em lote com informações enviadas em JSON.
+
+Na hora da inserção, apenas o campo `discount_percentage` ou `price_with_discount` poderão ser enviados no mesmo objeto.
 
 ### Requisição HTTP
 
@@ -335,6 +415,14 @@ Esse endpoint cria cursos em lote com informações enviadas em JSON.
 | [courses] shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
 | [courses] period_kind | string | Periodicidade do curso. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
 | [courses] max_periods | string | Quantidade de periodicidade. Mais informações sobre esse atributo [aqui](#periodicidade-period_kind) |
+| [courses] enrollment_semester | string | Semestre de matrícula do curso |
+| [courses] full_price | float | Preço do curso sem desconto |
+| [courses] discount_percentage | float | Porcentagem de desconto do Quero Bolsa. |
+| [courses] price_with_discount | float | Preço do curso com desconto |
+| [courses] regressive_commercial_discount | float | Desconto regressivo disponibilizado pela universidade. Esta parcela do desconto pode ser alterada ao longo do curso. Quando não fornecido, assume-se 0 |
+| [courses] fixed_commercial_discount | float | Desconto fixo disponibilizado pela instituição no seu balcão. Esta parcela do desconto não é alterado ao longo do curso. Quando não fornecido, assume-se 0 |
+| [courses] end_date | string | Data de término da validade da oferta |
+| [courses] number_of_installments | integer | Número de parcelas que o curso será pago. Caso não informado, será considerado que o curso é pago em mensalidades e na mesma duração do mesmo. |
 
 ### Parâmetros da resposta
 
