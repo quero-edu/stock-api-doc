@@ -64,7 +64,7 @@ A sessão é criada por meio da autenticação utilizando uma combinação de us
 > Exemplo de requisição
 
 ```shell
-curl -X POST "https://querobolsa.com.br/api/sessions" \
+curl -X POST "https://stock.querobolsa.com.br/api/sessions" \
   -H 'Content-Type: application/json' \
   -d '{
     "authentication": {

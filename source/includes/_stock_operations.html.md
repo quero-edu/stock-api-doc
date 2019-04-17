@@ -29,7 +29,7 @@ Lista de valores possíveis do campo `status`:
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/stock_operations" \
+curl "https://stock.querobolsa.com.br/api/stock_operations" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -67,7 +67,7 @@ Esse endpoint lista todas as operações de estoque.
 
 ### Requisição HTTP
 
-`GET https://querobolsa.com.br/api/stock_operations`
+`GET https://stock.querobolsa.com.br/api/stock_operations`
 
 ### Parâmetros da resposta
 

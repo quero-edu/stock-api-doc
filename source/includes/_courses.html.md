@@ -93,7 +93,7 @@ Segue a tabela com possíveis valores para esse campo:
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/courses" \
+curl "https://stock.querobolsa.com.br/api/universities/1001/courses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -174,7 +174,13 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 
 ### Requisição HTTP
 
-`GET https://querobolsa.com.br/api/courses`
+`GET https://stock.querobolsa.com.br/api/universities/<UNIVERSITY_ID>/courses`
+
+### Parâmetros da requisição
+
+| Nome | Tipo | Descrição |
+| ---- | ---- | --------- |
+| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
 
 ### Parâmetros da resposta
 
@@ -215,7 +221,7 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/courses?campus_id=102" \
+curl "https://stock.querobolsa.com.br/api/universities/1001/courses?campus_id=102" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -266,12 +272,13 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 
 ### Requisição HTTP
 
-`GET https://querobolsa.com.br/api/courses?campus_id=<CAMPUS_ID>`
+`GET https://stock.querobolsa.com.br/api/universities/<UNIVERSITY_ID>/courses?campus_id=<CAMPUS_ID>`
 
 ### Parâmetros da requisição
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
+| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
 | CAMPUS_ID | query | ID do campus onde deseja resgatar cursos |
 
 ### Parâmetros da resposta
@@ -314,7 +321,7 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/courses/253" \
+curl "https://stock.querobolsa.com.br/api/courses/253" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -358,13 +365,14 @@ Esse endpoint traz informações de um curso específico.
 
 ### Requisição HTTP
 
-`GET https://querobolsa.com.br/api/courses/<ID>`
+`GET https://stock.querobolsa.com.br/api/universities/<UNIVERSITY_ID>/courses/<COURSE_ID>`
 
 ### Parâmetros da requisição
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| ID | path | ID do curso que deseja resgatar informações |
+| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| COURSE_ID | path | ID do curso que deseja resgatar informações |
 
 ### Parâmetros da resposta
 
@@ -403,7 +411,7 @@ Esse endpoint traz informações de um curso específico.
 > Exemplo de requisição
 
 ```shell
-curl -X POST "https://querobolsa.com.br/api/courses" \
+curl -X POST "https://stock.querobolsa.com.br/api/universities/1001/courses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json' \
   -d @course_data.json
@@ -467,7 +475,13 @@ Na hora da inserção, apenas o campo `discount_percentage` ou `price_with_disco
 
 ### Requisição HTTP
 
-`POST https://querobolsa.com.br/api/courses/`
+`POST https://stock.querobolsa.com.br/api/universities/<UNIVERSITY_ID>/courses`
+
+### Parâmetros da requisição
+
+| Nome | Tipo | Descrição |
+| ---- | ---- | --------- |
+| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
 
 <aside class="notice">
   A resposta da requisição carrega o campo <code>operation_id</code>.

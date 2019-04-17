@@ -5,7 +5,7 @@
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/campuses" \
+curl "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -50,7 +50,13 @@ Campi são retornados em páginas de até 1000 elementos, ordenadas pela última
 
 ### Requisição HTTP
 
-`GET https://querobolsa.com.br/api/campuses`
+`GET https://stock.querobolsa.com.br/api/universities/<UNIVERSITY_ID>/campuses`
+
+### Parâmetros da requisição
+
+| Nome | Tipo | Descrição |
+| ---- | ---- | --------- |
+| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
 
 ### Parâmetros da resposta
 
@@ -74,7 +80,7 @@ Campi são retornados em páginas de até 1000 elementos, ordenadas pela última
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/campuses/102" \
+curl "https://stock.querobolsa.com.br/api/universities/1001/campuses/102" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -100,13 +106,14 @@ Retorna informações de um campus específico.
 
 ### Requisição HTTP
 
-`GET https://querobolsa.com.br/api/campuses/<ID>`
+`GET https://stock.querobolsa.com.br/api/universities/<UNIVERSITY_ID>/campuses/<CAMPUS_ID>`
 
 ### Parâmetros da requisição
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| ID | path | ID do campus que deseja resgatar informações |
+| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
+| CAMPUS_ID | path | ID do campus que deseja resgatar informações |
 
 ### Parâmetros da resposta
 
@@ -128,7 +135,7 @@ Retorna informações de um campus específico.
 > Exemplo de requisição
 
 ```shell
-curl -X POST "https://querobolsa.com.br/api/campuses" \
+curl -X POST "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json' \
   -d @campus_data.json
@@ -188,7 +195,13 @@ Caso o ID do campus não seja enviado, uma **validação** com a base de dados s
 
 ### Requisição HTTP
 
-`POST https://querobolsa.com.br/api/campuses/`
+`POST https://stock.querobolsa.com.br/api/universities/<UNIVERSITY_ID>/campuses/`
+
+### Parâmetros da requisição
+
+| Nome | Tipo | Descrição |
+| ---- | ---- | --------- |
+| UNIVERSITY_ID | query | ID da universidade onde deseja realizar a ação |
 
 <aside class="notice">
   A resposta da requisição retorna o <code>operation_id</code>, que pode ser utilizado para obter os detalhes da operação, como o progresso.

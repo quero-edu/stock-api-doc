@@ -5,7 +5,7 @@
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/campuses" \
+curl "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -68,7 +68,7 @@ O atributo `has_more` da resposta indica se há mais dados disponíveis depois d
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/campuses?starting_after=13562" \
+curl "https://stock.querobolsa.com.br/api/universities/1001/campuses?starting_after=13562" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -131,7 +131,7 @@ No exemplo acima, vimos que `has_more` retornou `true`, portanto existem mais da
 > Exemplo de requisição
 
 ```shell
-curl "https://querobolsa.com.br/api/campuses?ending_before=14202" \
+curl "https://stock.querobolsa.com.br/api/universities/1001/campuses?ending_before=14202" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
