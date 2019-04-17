@@ -471,7 +471,7 @@ Status Code: 200 OK
 
 Esse endpoint cria cursos em lote com informações enviadas em JSON.
 
-Na hora da inserção, apenas o campo `discount_percentage` ou `price_with_discount` poderão ser enviados no mesmo objeto.
+**Observação:** Na hora da inserção, apenas um dos campos `discount_percentage` ou `price_with_discount` pode ser enviado no mesmo objeto.
 
 ### Requisição HTTP
 

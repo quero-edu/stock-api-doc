@@ -24,12 +24,12 @@ Lista de valores possíveis do campo `status`:
 | success | Operação aplicada com sucesso |
 | error | Erro ao aplicar operação |
 
-## Listar operações de estoque
+## Informações de uma operação de estoque específica
 
 > Exemplo de requisição
 
 ```shell
-curl "https://stock.querobolsa.com.br/api/stock_operations" \
+curl "https://stock.querobolsa.com.br/api/stock_operations/4e8c23c3-fab1-486d-9c0e-c49301305d94" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -38,47 +38,38 @@ curl "https://stock.querobolsa.com.br/api/stock_operations" \
 
 ```json
 {
-  "stock_operations": [
-    {
-      "id": "4e8c23c3-fab1-486d-9c0e-c49301305d94",
-      "status": "success",
-      "success_count": 2,
-      "error_count": 0,
-      "validation_success_count": 2,
-      "validation_error_count": 0,
-      "created_at": "2019-04-10T03:15:44Z",
-      "finished_at": "2019-04-10T03:16:15Z"
-    },
-    {
-      "id": "4e8c23c3-fab1-486d-9c0e-c49301305d94",
-      "status": "error",
-      "success_count": 1,
-      "error_count": 1,
-      "validation_success_count": 2,
-      "validation_error_count": 0,
-      "created_at": "2019-04-12T02:49:20Z",
-      "finished_at": "2019-04-12T02:49:26Z"
-    }
-  ]
+  "id": "4e8c23c3-fab1-486d-9c0e-c49301305d94",
+  "status": "success",
+  "success_count": 2,
+  "error_count": 0,
+  "validation_success_count": 2,
+  "validation_error_count": 0,
+  "created_at": "2019-04-10T03:15:44Z",
+  "finished_at": "2019-04-10T03:16:15Z"
 }
 ```
 
-Esse endpoint lista todas as operações de estoque.
+Retorna dados de operação de estoque específica.
 
 ### Requisição HTTP
 
-`GET https://stock.querobolsa.com.br/api/stock_operations`
+`GET https://stock.querobolsa.com.br/api/stock_operations/<STOCK_OPERATION_ID>`
+
+### Parâmetros da requisição
+
+| Nome | Tipo | Descrição |
+| ---- | ---- | --------- |
+| STOCK_OPERATION_ID | query | ID da universidade onde deseja realizar a ação |
 
 ### Parâmetros da resposta
 
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
-| stock_operations | object array | Arranjo de objetos com dados de operação de estoque |
-| [stock_operations] id | string | Código identificador de operação de estoque |
-| [stock_operations] status | string | Estado atual da operação de estoque |
-| [stock_operations] success_count | integer | Número de operações no banco de dados realizadas com sucesso |
-| [stock_operations] error_count | integer | Número de operações no banco de dados realizadas que falharam |
-| [stock_operations] validation_success_count | integer | Número de operações no banco de dados que foram validadas com sucesso |
-| [stock_operations] validation_error_count | integer | Número de validações de operações no banco de dados que falharam |
-| [stock_operations] created_at | string | Data e hora combinadas da criação da operação de estoque em formato UTC [ISO 8601](https://pt.wikipedia.org/wiki/ISO_8601) |
-| [stock_operations] finished_at | string | Data e hora combinadas da finalização da operação de estoque em formato UTC [ISO 8601](https://pt.wikipedia.org/wiki/ISO_8601) |
+| id | string | Código identificador de operação de estoque |
+| status | string | Estado atual da operação de estoque |
+| success_count | integer | Número de operações no banco de dados realizadas com sucesso |
+| error_count | integer | Número de operações no banco de dados realizadas que falharam |
+| validation_success_count | integer | Número de operações no banco de dados que foram validadas com sucesso |
+| validation_error_count | integer | Número de validações de operações no banco de dados que falharam |
+| created_at | string | Data e hora combinadas da criação da operação de estoque em formato UTC [ISO 8601](https://pt.wikipedia.org/wiki/ISO_8601) |
+| finished_at | string | Data e hora combinadas da finalização da operação de estoque em formato UTC [ISO 8601](https://pt.wikipedia.org/wiki/ISO_8601) |
