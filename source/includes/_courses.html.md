@@ -106,7 +106,18 @@ curl "https://querobolsa.com.br/api/courses" \
   "items": [
     {
       "id": 253,
-      "campus_id": 102,
+      "campus": {
+        "id": 102,
+        "name": "Caxias",
+        "address": "Rua Araão Reis, 1789, Bloco 1",
+        "neighborhood": "Centro",
+        "city": "Caxias",
+        "state": "MA",
+        "zip_code": "65604-060",
+        "phone": "(00) 00000000",
+        "latitude": -23.198976,
+        "longitude": -45.901692
+      },
       "name": "MBA em Auditoria",
       "level": "Pós-graduação Lato Sensu",
       "kind": "EaD",
@@ -125,7 +136,18 @@ curl "https://querobolsa.com.br/api/courses" \
     },
     {
       "id": 809,
-      "campus_id": 7024,
+      "campus": {
+        "id": 7024,
+        "name": "Sorocaba",
+        "address": "Av. Independência, 210",
+        "neighborhood": "Éden",
+        "city": "Sorocaba",
+        "state": "SP",
+        "zip_code": "18087-101",
+        "phone": "(00) 00000000",
+        "latitude": -23.198976,
+        "longitude": -45.901692
+      },
       "name": "Direito",
       "level": "Bacharelado (graduação)",
       "kind": "Presencial",
@@ -161,8 +183,17 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 | has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de curso |
 | id | integer | Código identificador de curso |
-| campus_id | integer | Código identificador de campus |
-| name | string | Nome do curso |
+| campus | object | Objeto com dados de campus do curso |
+| [campus] id | integer | Código identificador de campus |
+| [campus] name | string | Nome do campus |
+| [campus] address | string | Endereço do campus |
+| [campus] neighborhood | string | Bairro do campus |
+| [campus] city | string | Cidade do campus |
+| [campus] state | string | Estado do campus |
+| [campus] zip_code | string | Código CEP do campus |
+| [campus] phone | string | Telefone do campus |
+| [campus] latitude | float | Coordenada de latitude do campus |
+| [campus] longitude | float | Coordenada de longitude do campus || name | string | Nome do curso |
 | level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
 | kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
 | shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
@@ -197,7 +228,18 @@ curl "https://querobolsa.com.br/api/courses?campus_id=102" \
   "items": [
     {
       "id": 253,
-      "campus_id": 102,
+      "campus": {
+        "id": 102,
+        "name": "Caxias",
+        "address": "Rua Araão Reis, 1789, Bloco 1",
+        "neighborhood": "Centro",
+        "city": "Caxias",
+        "state": "MA",
+        "zip_code": "65604-060",
+        "phone": "(00) 00000000",
+        "latitude": -23.198976,
+        "longitude": -45.901692
+      },
       "name": "MBA em Auditoria",
       "level": "Pós-graduação Lato Sensu",
       "kind": "EaD",
@@ -239,7 +281,17 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 | has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de curso |
 | id | integer | Código identificador de curso |
-| campus_id | integer | Código identificador de campus |
+| campus | object | Objeto com dados de campus do curso |
+| [campus] id | integer | Código identificador de campus |
+| [campus] name | string | Nome do campus |
+| [campus] address | string | Endereço do campus |
+| [campus] neighborhood | string | Bairro do campus |
+| [campus] city | string | Cidade do campus |
+| [campus] state | string | Estado do campus |
+| [campus] zip_code | string | Código CEP do campus |
+| [campus] phone | string | Telefone do campus |
+| [campus] latitude | float | Coordenada de latitude do campus |
+| [campus] longitude | float | Coordenada de longitude do campus |
 | name | string | Nome do curso |
 | level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
 | kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
@@ -272,7 +324,18 @@ curl "https://querobolsa.com.br/api/courses/253" \
 ```json
 {
   "id": 253,
-  "campus_id": 102,
+  "campus": {
+    "id": 102,
+    "name": "Caxias",
+    "address": "Rua Araão Reis, 1789, Bloco 1",
+    "neighborhood": "Centro",
+    "city": "Caxias",
+    "state": "MA",
+    "zip_code": "65604-060",
+    "phone": "(00) 00000000",
+    "latitude": -23.198976,
+    "longitude": -45.901692
+  },
   "name": "MBA em Auditoria",
   "level": "Pós-graduação Lato Sensu",
   "kind": "EaD",
@@ -308,8 +371,17 @@ Esse endpoint traz informações de um curso específico.
 | Nome | Tipo | Descrição
 | ---- | ---- | --------- |
 | id | integer | Código identificador de curso |
-| campus_id | integer | Código identificador de campus |
-| name | string | Nome do curso |
+| campus | object | Objeto com dados de campus do curso |
+| [campus] id | integer | Código identificador de campus |
+| [campus] name | string | Nome do campus |
+| [campus] address | string | Endereço do campus |
+| [campus] neighborhood | string | Bairro do campus |
+| [campus] city | string | Cidade do campus |
+| [campus] state | string | Estado do campus |
+| [campus] zip_code | string | Código CEP do campus |
+| [campus] phone | string | Telefone do campus |
+| [campus] latitude | float | Coordenada de latitude do campus |
+| [campus] longitude | float | Coordenada de longitude do campus || name | string | Nome do curso |
 | level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
 | kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
 | shift | string | Turno do curso. Mais informações sobre esse atributo [aqui](#turno-shift) |
