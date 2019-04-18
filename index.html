@@ -253,10 +253,18 @@
                     <a href="#exemplo-de-paginacao" class="toc-h2 toc-link" data-title="Exemplo de paginação">Exemplo de paginação</a>
                   </li>
                   <li>
-                    <a href="#uso-do-cursor-starting_after" class="toc-h2 toc-link" data-title="Uso do cursor starting_after">Uso do cursor starting_after</a>
+                    <a href="#uso-do-cursor-ending_before" class="toc-h2 toc-link" data-title="Uso do cursor ending_before">Uso do cursor ending_before</a>
                   </li>
                   <li>
-                    <a href="#uso-do-cursor-ending_before" class="toc-h2 toc-link" data-title="Uso do cursor ending_before">Uso do cursor ending_before</a>
+                    <a href="#uso-do-cursor-starting_after" class="toc-h2 toc-link" data-title="Uso do cursor starting_after">Uso do cursor starting_after</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#universidades" class="toc-h1 toc-link" data-title="Universidades">Universidades</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listar-universidades" class="toc-h2 toc-link" data-title="Listar universidades">Listar universidades</a>
                   </li>
               </ul>
           </li>
@@ -425,7 +433,7 @@ Status Code: 200 OK
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/campuses"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -436,7 +444,11 @@ Status Code: 200 OK
   </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12563</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30fe7edb-ef73-4538-912a-26d5126a81a9"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
@@ -449,7 +461,11 @@ Status Code: 200 OK
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13563</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6cc4aa4f-ef6d-48d0-b73c-cf5c5126fd1c"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Independência, 210"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Éden"</span><span class="p">,</span><span class="w">
@@ -463,9 +479,13 @@ Status Code: 200 OK
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>A API utiliza paginação baseada em cursor atráves dos parâmetros <code>starting_after</code> e <code>ending_before</code>. Ambos recebem um ID de um dado existente e retorna uma lista com até 1000 elementos no máximo.
-O parâmetro <code>ending_before</code> faz a requisição retornar elementos cujo ID é maior que o indicado pelo parâmetro. Em contrapartida, o parâmetro <code>starting_after</code> faz a requisição retornar elementos listados após o dado cujo ID foi indicado.
-O atributo <code>has_more</code> da resposta indica se há mais dados disponíveis depois dessa página. Se for <code>false</code>, significa que é o fim da lista e não há mais dados. Se for <code>true</code>, significa que há mais dados a serem resgatados. Após uma requisição utilizando o parâmetro <code>ending_before</code>, o atributo <code>has_more</code> se refere a possibilidade de retornar mais dados anteriores à página atual.</p>
+<p>A API de integração de estoque possui requisições de listagem de dados que podem resgatar quantidades massivas de informação. É utilizada paginação para evitar com que essas requisições não sobrecarreguem o banco de dados.</p>
+
+<p>A API utiliza paginação baseada em cursor atráves dos parâmetros <code>starting_after</code> e <code>ending_before</code>. Ambos recebem um ID de um dado existente e retorna uma lista com até 1000 elementos no máximo.</p>
+
+<p>Os objetos são retornados ordenados pela data de criação decrescentemente. O parâmetro <code>ending_before</code> faz a requisição retornar elementos criados anteriormente ao dado cujo ID foi indicado pelo parâmetro. Em contrapartida, o parâmetro <code>starting_after</code> faz a requisição retornar elementos listados criados após o dado cujo ID foi indicado.</p>
+
+<p>O atributo <code>has_more</code> da resposta indica se há mais dados disponíveis depois dessa página. Se for <code>false</code>, significa que é o fim da lista e não há mais dados. Se for <code>true</code>, significa que há mais dados a serem resgatados. Após uma requisição utilizando o parâmetro <code>ending_before</code>, o atributo <code>has_more</code> se refere a possibilidade de retornar mais dados anteriores à página atual.</p>
 <h3 id='parametros-de-paginacao'>Parâmetros de paginação</h3>
 <table><thead>
 <tr>
@@ -504,11 +524,11 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <td>Lista dos elementos retornados pela requisição</td>
 </tr>
 </tbody></table>
-<h2 id='uso-do-cursor-starting_after'>Uso do cursor starting_after</h2>
+<h2 id='uso-do-cursor-ending_before'>Uso do cursor ending_before</h2>
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/campuses?starting_after=13562"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses?ending_before=6cc4aa4f-ef6d-48d0-b73c-cf5c5126fd1c"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -519,20 +539,28 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
   </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13563</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Independência, 210"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Éden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c11e1d0-1b96-412d-98db-db5fee90492d"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Henri Dunant, 203"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chácara Santo Amaro"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18087-101"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04709-110"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(00) 00000000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-23.198976</span><span class="p">,</span><span class="w">
       </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4ba0104a-fbac-4c67-942c-3fcd96b77a83"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Marquês de São Vicente, 2900"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Água Branca"</span><span class="p">,</span><span class="w">
@@ -585,13 +613,11 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <td>Lista dos elementos retornados pela requisição</td>
 </tr>
 </tbody></table>
-<h2 id='uso-do-cursor-ending_before'>Uso do cursor ending_before</h2>
+<h2 id='uso-do-cursor-starting_after'>Uso do cursor starting_after</h2>
 <blockquote>
 <p>Exemplo de requisição</p>
-
-<p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/campuses?ending_before=14202"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses?starting_after=7c11e1d0-1b96-412d-98db-db5fee90492d"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -599,29 +625,37 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <p>Retorno</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13201</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BH"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Intersindical, 218"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flávio de Oliveira"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Belo Horizonte"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18087-101"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30fe7edb-ef73-4538-912a-26d5126a81a9"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65604-060"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(00) 00000000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-23.198976</span><span class="p">,</span><span class="w">
       </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14201</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campinas"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Itatiba, 1427"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jardim Novo Campos Elíseos"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campinas"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6cc4aa4f-ef6d-48d0-b73c-cf5c5126fd1c"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Independência, 210"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Éden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13050-545"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18087-101"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(00) 00000000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-23.198976</span><span class="p">,</span><span class="w">
       </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
@@ -629,7 +663,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Assim como avançamos uma página, é possível facilmente retornar a dados anteriores à página atual. Para fazer isso, na próxima requisição o parâmetro <code>ending_before</code> precisa ter o ID do primeiro elemento da lista <code>items</code>. A requisição e retorno ao lado são referentes ao exemplo <a href="#uso-do-cursor-starting_after">acima</a>.</p>
+<p>Assim como avançamos uma página, é possível facilmente retornar a dados anteriores à página atual. Para fazer isso, na próxima requisição o parâmetro <code>starting_after</code> precisa ter o ID do primeiro elemento da lista <code>items</code>. A requisição e retorno ao lado são referentes ao exemplo <a href="#uso-do-cursor-ending_before">acima</a>.</p>
 <h3 id='parametros-de-paginacao-3'>Parâmetros de paginação</h3>
 <table><thead>
 <tr>
@@ -668,11 +702,11 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <td>Lista dos elementos retornados pela requisição</td>
 </tr>
 </tbody></table>
-<h1 id='campi'>Campi</h1><h2 id='listar-campi'>Listar campi</h2>
+<h1 id='universidades'>Universidades</h1><h2 id='listar-universidades'>Listar universidades</h2>
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/campuses"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -683,7 +717,60 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
   </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f21d030e-b40d-4ecf-a0a3-fd7d2cbd06e5"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Faculdade Quero"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Lista todas as universidades associadas ao usuário que possui o token de autenticação enviado na requisição.</p>
+
+<p>Universidades são retornadas em páginas de até 1000 elementos, ordenadas pela última criação realizada. Se houver mais resultados, <code>has_more</code> retorna <code>true</code> indicando que é possível usar o parâmetro <code>ending_before</code> para consultar objetos antecessores à lista atual. Para mais informações, consulte a <a href="#paginacao">seção de paginação</a>.</p>
+<h3 id='requisicao-http'>Requisição HTTP</h3>
+<p><code>GET https://stock.querobolsa.com.br/api/universities</code></p>
+<h3 id='parametros-da-resposta'>Parâmetros da resposta</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Identificador único de universidade</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Nome do campus</td>
+</tr>
+</tbody></table>
+<h1 id='campi'>Campi</h1><h2 id='listar-campi'>Listar campi</h2>
+<blockquote>
+<p>Exemplo de requisição</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses"</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>Exemplo de retorno JSON para esta requisição</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00d9ef5a-d003-4212-99ff-c4308f18803d"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
@@ -695,7 +782,11 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
       </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7024</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d49f7f8-5994-40ae-a8fa-b9c9d66adef8"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Independência, 210"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Éden"</span><span class="p">,</span><span class="w">
@@ -748,8 +839,23 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </tr>
 <tr>
 <td>id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>university</td>
+<td>object</td>
+<td>Objeto com dados de universidade</td>
+</tr>
+<tr>
+<td>[university] id</td>
+<td>string</td>
+<td>Código identificador de universidade</td>
+</tr>
+<tr>
+<td>[university] name</td>
+<td>string</td>
+<td>Nome da universidade</td>
 </tr>
 <tr>
 <td>name</td>
@@ -801,7 +907,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/campuses/102"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses/00d9ef5a-d003-4212-99ff-c4308f18803d"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -809,7 +915,11 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <p>Exemplo de retorno JSON para esta requisição</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00d9ef5a-d003-4212-99ff-c4308f18803d"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
@@ -853,13 +963,28 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de campus</td>
 </tr>
 <tr>
 <td>name</td>
 <td>string</td>
 <td>Nome do campus</td>
+</tr>
+<tr>
+<td>university</td>
+<td>object</td>
+<td>Objeto com dados de universidade</td>
+</tr>
+<tr>
+<td>[university] id</td>
+<td>string</td>
+<td>Código identificador de universidade</td>
+</tr>
+<tr>
+<td>[university] name</td>
+<td>string</td>
+<td>Nome da universidade</td>
 </tr>
 <tr>
 <td>address</td>
@@ -906,7 +1031,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/campuses"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -d @campus_data.json
@@ -917,7 +1042,6 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"campuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"university_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
@@ -929,7 +1053,6 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
       </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45.901692</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"university_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Independência, 210"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Éden"</span><span class="p">,</span><span class="w">
@@ -991,11 +1114,6 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <td>campuses</td>
 <td>object array</td>
 <td>Arranjo de objetos com dados de campus</td>
-</tr>
-<tr>
-<td>[campuses] university_id</td>
-<td>integer</td>
-<td>Código identificador da universidade do campus</td>
 </tr>
 <tr>
 <td>[campuses] name</td>
@@ -1240,7 +1358,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/courses"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/courses"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -1251,9 +1369,13 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
   </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accf676c-b200-485f-9c96-f887eae531d0"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"campus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00d9ef5a-d003-4212-99ff-c4308f18803d"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
@@ -1281,9 +1403,13 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
       </span><span class="s2">"extra_benefit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"* &amp;bull; Primeira parcela grátis"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">809</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b0a5715-f21c-43c7-9db8-1df8aa464494"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"campus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7024</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d49f7f8-5994-40ae-a8fa-b9c9d66adef8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorocaba"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Independência, 210"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Éden"</span><span class="p">,</span><span class="w">
@@ -1352,7 +1478,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </tr>
 <tr>
 <td>id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de curso</td>
 </tr>
 <tr>
@@ -1362,8 +1488,23 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </tr>
 <tr>
 <td>[campus] id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>[campus] university</td>
+<td>object</td>
+<td>Objeto com dados de universidade</td>
+</tr>
+<tr>
+<td>[campus] [university] id</td>
+<td>string</td>
+<td>Código identificador de universidade</td>
+</tr>
+<tr>
+<td>[campus] [university] name</td>
+<td>string</td>
+<td>Nome da universidade</td>
 </tr>
 <tr>
 <td>[campus] name</td>
@@ -1490,7 +1631,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/courses?campus_id=102"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/courses?campus_id=00d9ef5a-d003-4212-99ff-c4308f18803d"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -1501,9 +1642,13 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
   </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accf676c-b200-485f-9c96-f887eae531d0"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"campus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00d9ef5a-d003-4212-99ff-c4308f18803d"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
@@ -1577,7 +1722,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </tr>
 <tr>
 <td>id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de curso</td>
 </tr>
 <tr>
@@ -1587,8 +1732,23 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </tr>
 <tr>
 <td>[campus] id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>[campus] university</td>
+<td>object</td>
+<td>Objeto com dados de universidade</td>
+</tr>
+<tr>
+<td>[campus] [university] id</td>
+<td>string</td>
+<td>Código identificador de universidade</td>
+</tr>
+<tr>
+<td>[campus] [university] name</td>
+<td>string</td>
+<td>Nome da universidade</td>
 </tr>
 <tr>
 <td>[campus] name</td>
@@ -1720,7 +1880,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/courses/253"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stock.querobolsa.com.br/api/courses/accf676c-b200-485f-9c96-f887eae531d0"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -1728,9 +1888,13 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <p>Exemplo de retorno JSON para esta requisição</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accf676c-b200-485f-9c96-f887eae531d0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"campus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00d9ef5a-d003-4212-99ff-c4308f18803d"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65605bf0-cad2-4dc2-ae11-65c77bc36508"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UniQuero"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caxias"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Araão Reis, 1789, Bloco 1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
@@ -1790,7 +1954,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de curso</td>
 </tr>
 <tr>
@@ -1800,8 +1964,28 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </tr>
 <tr>
 <td>[campus] id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>[campus] id</td>
+<td>string</td>
+<td>Código identificador de campus</td>
+</tr>
+<tr>
+<td>[campus] university</td>
+<td>object</td>
+<td>Objeto com dados de universidade</td>
+</tr>
+<tr>
+<td>[campus] [university] id</td>
+<td>string</td>
+<td>Código identificador de universidade</td>
+</tr>
+<tr>
+<td>[campus] [university] name</td>
+<td>string</td>
+<td>Nome da universidade</td>
 </tr>
 <tr>
 <td>[campus] name</td>
@@ -1928,7 +2112,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <blockquote>
 <p>Exemplo de requisição</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://stock.querobolsa.com.br/api/universities/1001/courses"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/courses"</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer ##########'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -d @course_data.json
@@ -1939,7 +2123,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00d9ef5a-d003-4212-99ff-c4308f18803d"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA em Auditoria"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pós-graduação Lato Sensu"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EaD"</span><span class="p">,</span><span class="w">
@@ -1955,7 +2139,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
       </span><span class="s2">"number_of_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7024</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d49f7f8-5994-40ae-a8fa-b9c9d66adef8"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direito"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bacharelado (graduação)"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Presencial"</span><span class="p">,</span><span class="w">
@@ -2020,7 +2204,7 @@ O atributo <code>has_more</code> da resposta indica se há mais dados disponíve
 </tr>
 <tr>
 <td>[courses] campus_id</td>
-<td>integer</td>
+<td>string</td>
 <td>Código identificador de campus</td>
 </tr>
 <tr>
