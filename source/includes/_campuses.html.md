@@ -5,7 +5,7 @@
 > Exemplo de requisição
 
 ```shell
-curl "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
+curl "https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -17,7 +17,11 @@ curl "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
   "has_more": false,
   "items": [
     {
-      "id": 102,
+      "id": "00d9ef5a-d003-4212-99ff-c4308f18803d",
+      "university": {
+        "id": "65605bf0-cad2-4dc2-ae11-65c77bc36508",
+        "name": "UniQuero",
+      },
       "name": "Caxias",
       "address": "Rua Araão Reis, 1789, Bloco 1",
       "neighborhood": "Centro",
@@ -29,7 +33,11 @@ curl "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
       "longitude": -45.901692
     },
     {
-      "id": 7024,
+      "id": "9d49f7f8-5994-40ae-a8fa-b9c9d66adef8",
+      "university": {
+        "id": "65605bf0-cad2-4dc2-ae11-65c77bc36508",
+        "name": "UniQuero",
+      },
       "name": "Sorocaba",
       "address": "Av. Independência, 210",
       "neighborhood": "Éden",
@@ -64,7 +72,10 @@ Campi são retornados em páginas de até 1000 elementos, ordenadas pela última
 | ---- | ---- | --------- |
 | has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de campus |
-| id | integer | Código identificador de campus |
+| id | string | Código identificador de campus |
+| university | object | Objeto com dados de universidade |
+| [university] id | string | Código identificador de universidade |
+| [university] name | string | Nome da universidade |
 | name | string | Nome do campus |
 | address | string | Endereço do campus |
 | neighborhood | string | Bairro do campus |
@@ -80,7 +91,7 @@ Campi são retornados em páginas de até 1000 elementos, ordenadas pela última
 > Exemplo de requisição
 
 ```shell
-curl "https://stock.querobolsa.com.br/api/universities/1001/campuses/102" \
+curl "https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses/00d9ef5a-d003-4212-99ff-c4308f18803d" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -89,7 +100,11 @@ curl "https://stock.querobolsa.com.br/api/universities/1001/campuses/102" \
 
 ```json
 {
-  "id": 102,
+  "id": "00d9ef5a-d003-4212-99ff-c4308f18803d",
+  "university": {
+    "id": "65605bf0-cad2-4dc2-ae11-65c77bc36508",
+    "name": "UniQuero",
+  },
   "name": "Caxias",
   "address": "Rua Araão Reis, 1789, Bloco 1",
   "neighborhood": "Centro",
@@ -119,8 +134,11 @@ Retorna informações de um campus específico.
 
 | Nome | Tipo | Descrição
 | ---- | ---- | --------- |
-| id | integer | Código identificador de campus |
+| id | string | Código identificador de campus |
 | name | string | Nome do campus |
+| university | object | Objeto com dados de universidade |
+| [university] id | string | Código identificador de universidade |
+| [university] name | string | Nome da universidade |
 | address | string | Endereço do campus |
 | neighborhood | string | Bairro do campus |
 | city | string | Cidade do campus |
@@ -135,7 +153,7 @@ Retorna informações de um campus específico.
 > Exemplo de requisição
 
 ```shell
-curl -X POST "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
+curl -X POST "https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/campuses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json' \
   -d @campus_data.json
@@ -147,7 +165,6 @@ curl -X POST "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
 {
   "campuses": [
     {
-      "university_id": 61,
       "name": "Caxias",
       "address": "Rua Araão Reis, 1789, Bloco 1",
       "neighborhood": "Centro",
@@ -159,7 +176,6 @@ curl -X POST "https://stock.querobolsa.com.br/api/universities/1001/campuses" \
       "longitude": -45.901692
     },
     {
-      "university_id": 61,
       "name": "Sorocaba",
       "address": "Av. Independência, 210",
       "neighborhood": "Éden",
@@ -214,7 +230,6 @@ Caso o ID do campus não seja enviado, uma **validação** com a base de dados s
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
 | campuses | object array | Arranjo de objetos com dados de campus |
-| [campuses] university_id | integer | Código identificador da universidade do campus |
 | [campuses] name | string | Nome do campus |
 | [campuses] address | string | Endereço do campus |
 | [campuses] neighborhood | string | Bairro do campus |

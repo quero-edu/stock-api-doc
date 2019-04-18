@@ -93,7 +93,7 @@ Segue a tabela com possíveis valores para esse campo:
 > Exemplo de requisição
 
 ```shell
-curl "https://stock.querobolsa.com.br/api/universities/1001/courses" \
+curl "https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/courses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -105,9 +105,13 @@ curl "https://stock.querobolsa.com.br/api/universities/1001/courses" \
   "has_more": false,
   "items": [
     {
-      "id": 253,
+      "id": "accf676c-b200-485f-9c96-f887eae531d0",
       "campus": {
-        "id": 102,
+        "id": "00d9ef5a-d003-4212-99ff-c4308f18803d",
+        "university": {
+          "id": "65605bf0-cad2-4dc2-ae11-65c77bc36508",
+          "name": "UniQuero",
+        },
         "name": "Caxias",
         "address": "Rua Araão Reis, 1789, Bloco 1",
         "neighborhood": "Centro",
@@ -135,9 +139,13 @@ curl "https://stock.querobolsa.com.br/api/universities/1001/courses" \
       "extra_benefit": "* &bull; Primeira parcela grátis"
     },
     {
-      "id": 809,
+      "id": "5b0a5715-f21c-43c7-9db8-1df8aa464494",
       "campus": {
-        "id": 7024,
+        "id": "9d49f7f8-5994-40ae-a8fa-b9c9d66adef8",
+        "university": {
+          "id": "65605bf0-cad2-4dc2-ae11-65c77bc36508",
+          "name": "UniQuero",
+        },
         "name": "Sorocaba",
         "address": "Av. Independência, 210",
         "neighborhood": "Éden",
@@ -188,9 +196,12 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 | ---- | ---- | --------- |
 | has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de curso |
-| id | integer | Código identificador de curso |
+| id | string | Código identificador de curso |
 | campus | object | Objeto com dados de campus do curso |
-| [campus] id | integer | Código identificador de campus |
+| [campus] id | string | Código identificador de campus |
+| [campus] university | object | Objeto com dados de universidade |
+| [campus] [university] id | string | Código identificador de universidade |
+| [campus] [university] name | string | Nome da universidade |
 | [campus] name | string | Nome do campus |
 | [campus] address | string | Endereço do campus |
 | [campus] neighborhood | string | Bairro do campus |
@@ -221,7 +232,7 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 > Exemplo de requisição
 
 ```shell
-curl "https://stock.querobolsa.com.br/api/universities/1001/courses?campus_id=102" \
+curl "https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/courses?campus_id=00d9ef5a-d003-4212-99ff-c4308f18803d" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -233,9 +244,13 @@ curl "https://stock.querobolsa.com.br/api/universities/1001/courses?campus_id=10
   "has_more": false,
   "items": [
     {
-      "id": 253,
+      "id": "accf676c-b200-485f-9c96-f887eae531d0",
       "campus": {
-        "id": 102,
+        "id": "00d9ef5a-d003-4212-99ff-c4308f18803d",
+        "university": {
+          "id": "65605bf0-cad2-4dc2-ae11-65c77bc36508",
+          "name": "UniQuero",
+        },
         "name": "Caxias",
         "address": "Rua Araão Reis, 1789, Bloco 1",
         "neighborhood": "Centro",
@@ -287,9 +302,12 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 | ---- | ---- | --------- |
 | has_more | boolean | Indica se há mais elementos disponíveis antes ou após essa página |
 | items | object array | Arranjo de objetos com dados de curso |
-| id | integer | Código identificador de curso |
+| id | string | Código identificador de curso |
 | campus | object | Objeto com dados de campus do curso |
-| [campus] id | integer | Código identificador de campus |
+| [campus] id | string | Código identificador de campus |
+| [campus] university | object | Objeto com dados de universidade |
+| [campus] [university] id | string | Código identificador de universidade |
+| [campus] [university] name | string | Nome da universidade |
 | [campus] name | string | Nome do campus |
 | [campus] address | string | Endereço do campus |
 | [campus] neighborhood | string | Bairro do campus |
@@ -321,7 +339,7 @@ Cursos são retornados em páginas de até 1000 elementos, ordenadas pela últim
 > Exemplo de requisição
 
 ```shell
-curl "https://stock.querobolsa.com.br/api/courses/253" \
+curl "https://stock.querobolsa.com.br/api/courses/accf676c-b200-485f-9c96-f887eae531d0" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json'
 ```
@@ -330,9 +348,13 @@ curl "https://stock.querobolsa.com.br/api/courses/253" \
 
 ```json
 {
-  "id": 253,
+  "id": "accf676c-b200-485f-9c96-f887eae531d0",
   "campus": {
-    "id": 102,
+    "id": "00d9ef5a-d003-4212-99ff-c4308f18803d",
+    "university": {
+      "id": "65605bf0-cad2-4dc2-ae11-65c77bc36508",
+      "name": "UniQuero",
+    },
     "name": "Caxias",
     "address": "Rua Araão Reis, 1789, Bloco 1",
     "neighborhood": "Centro",
@@ -378,9 +400,13 @@ Esse endpoint traz informações de um curso específico.
 
 | Nome | Tipo | Descrição
 | ---- | ---- | --------- |
-| id | integer | Código identificador de curso |
+| id | string | Código identificador de curso |
 | campus | object | Objeto com dados de campus do curso |
-| [campus] id | integer | Código identificador de campus |
+| [campus] id | string | Código identificador de campus |
+| [campus] id | string | Código identificador de campus |
+| [campus] university | object | Objeto com dados de universidade |
+| [campus] [university] id | string | Código identificador de universidade |
+| [campus] [university] name | string | Nome da universidade |
 | [campus] name | string | Nome do campus |
 | [campus] address | string | Endereço do campus |
 | [campus] neighborhood | string | Bairro do campus |
@@ -411,7 +437,7 @@ Esse endpoint traz informações de um curso específico.
 > Exemplo de requisição
 
 ```shell
-curl -X POST "https://stock.querobolsa.com.br/api/universities/1001/courses" \
+curl -X POST "https://stock.querobolsa.com.br/api/universities/65605bf0-cad2-4dc2-ae11-65c77bc36508/courses" \
   -H 'Authorization: Bearer ##########' \
   -H 'Content-Type: application/json' \
   -d @course_data.json
@@ -423,7 +449,7 @@ curl -X POST "https://stock.querobolsa.com.br/api/universities/1001/courses" \
 {
   "courses": [
     {
-      "campus_id": 102,
+      "campus_id": "00d9ef5a-d003-4212-99ff-c4308f18803d",
       "name": "MBA em Auditoria",
       "level": "Pós-graduação Lato Sensu",
       "kind": "EaD",
@@ -439,7 +465,7 @@ curl -X POST "https://stock.querobolsa.com.br/api/universities/1001/courses" \
       "number_of_installments": 12
     },
     {
-      "campus_id": 7024,
+      "campus_id": "9d49f7f8-5994-40ae-a8fa-b9c9d66adef8",
       "name": "Direito",
       "level": "Bacharelado (graduação)",
       "kind": "Presencial",
@@ -494,7 +520,7 @@ Esse endpoint cria cursos em lote com informações enviadas em JSON.
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
 | courses | object array | Arranjo de objetos com dados de curso |
-| [courses] campus_id | integer | Código identificador de campus |
+| [courses] campus_id | string | Código identificador de campus |
 | [courses] name | string | Nome do curso |
 | [courses] level | string | Grau do curso. Mais informações sobre esse atributo [aqui](#grau-level) |
 | [courses] kind | string | Modalidade do curso. Mais informações sobre esse atributo [aqui](#modalidade-kind) |
