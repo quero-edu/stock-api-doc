@@ -7,6 +7,7 @@ toc_footers:
 includes:
   - auth.html
   - pagination.html
+  - universities.html
   - campuses.html
   - courses.html
   - stock_operations.html
