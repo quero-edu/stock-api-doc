@@ -41,4 +41,4 @@ Universidades são retornadas em páginas de até 1000 elementos, ordenadas pela
 | Nome | Tipo | Descrição |
 | ---- | ---- | --------- |
 | id | string | Identificador único de universidade |
-| name | string | Nome do campus |
+| name | string | Nome da universidade |
